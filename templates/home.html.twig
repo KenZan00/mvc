@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Home</h1>
+    <h3>En lite kort presentation om mig</h3>
+    <p>Mitt namn är Kenny. Läser kurspaketet Webbprogrammering & Databaser. Förutom att läsa programmering gillar jag att hitta på saker med familjen, spela tennis, köra motorcykel och spela tv-spel.</p>
+    <a href="{{ asset('img/kenny.jpg') }}">
+        <img src="{{ asset('img/kenny.jpg') }}" alt="">
+    </a>
+{% endblock %}

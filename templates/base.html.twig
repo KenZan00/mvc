@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    
+    <body>
+        <header class="site-header" style="background-image: url({{ asset('img/subtle-prism.svg') }})">
+            <span class="site-title">
+                <img src="{{ asset('build/images/mvc.jpeg') }}" alt="mvc" class="mvc-logo">
+            </span>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('about') }}">About</a></li>
+                <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+            </ul>
+        </nav>
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+    </body>
+</html>
