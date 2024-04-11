@@ -16,6 +16,13 @@ header {
     height: 150px;
 }
 
+footer {
+    height: 75px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
 .site-title {
     height: 150px;
     display: flex;
@@ -69,4 +76,15 @@ nav li a {
   
   .column {
     flex: 50%;
+  }
+
+  .rainbow {
+    width: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ffe0b2, #ffcc80, #ffd180, #cbe7e7, #a8d8ea, #c9c9ff, #e2b0ff);    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+    color: #333;
   }
