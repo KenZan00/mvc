@@ -21,6 +21,9 @@ footer {
     display: flex;
     margin: auto;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .site-title {
