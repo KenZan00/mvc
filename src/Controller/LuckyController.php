@@ -17,13 +17,13 @@ class LuckyController
             '<html><body>Lucky number: '.$number.'</body></html>'
         );
     }
-    
+
     #[Route("/lucky/hi")]
     public function hi(): Response
     {
         return new Response(
-        '<html><body>Hi to you!</body></html>'
+            '<html><body>Hi to you!</body></html>'
         );
     }
-    
+
 }

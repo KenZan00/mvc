@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+<h1>Session info</h1>
+
+<ul>
+    {% for key, value in sessionData %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+
+{{ include('flash.html.twig') }}
+
+{% endblock %}

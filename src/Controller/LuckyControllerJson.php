@@ -30,13 +30,13 @@ class LuckyControllerJson
     #[Route("/api")]
     public function api(): Response
     {
-        
+
         $data = [
             '/api/lucky/number' => 'Get a lucky number',
             '/api/quote' => 'Get 1 of 3 random quotes'
         ];
 
-       
+
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
@@ -47,7 +47,7 @@ class LuckyControllerJson
     #[Route("/api/quote")]
     public function quote(): Response
     {
-        
+
         $data = [
             "Det omöjliga tar bara lite längre tid - Sir Winston Churchill",
             "Förnuftet är en tjänare, intuitionen är en gåva – Einstein",
@@ -59,7 +59,7 @@ class LuckyControllerJson
         $randomDataIndex = array_rand($data);
         $randomData = $data[$randomDataIndex];
 
-       
+
         $response = new JsonResponse($randomData);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
