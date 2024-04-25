@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+
+<h1>Här kommer info om sessionen att vara</h1>
+
+<ul>
+    <h2>Kort i kortleken</h2>
+    <ul>
+        {% for description in data %}
+            <li>{{ description }}</li>
+        {% endfor %}
+    </ul>
+</ul>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="shuffle" value="Shuffle"
+            onClick="this.form.action='{{ path('shuffle') }}';"
+        >
+        <input type="submit" name="draw" value="Draw"
+            onClick="this.form.action='{{ path('draw') }}';"
+        >
+        <input type="number" name="draw_num" min="1" max="52" value="1">
+        <input type="submit" name="do_it" value="Draw Cards"
+            onClick="this.form.action='{{ path('draw_num') }}';">
+    </p>
+</form>
+
+
+
+
+
+
+{% endblock %}
+
