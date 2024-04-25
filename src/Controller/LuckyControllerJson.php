@@ -47,7 +47,7 @@ class LuckyControllerJson
     #[Route("/api/quote")]
     public function quote(): Response
     {
-            // List of quotes directly in array
+        // List of quotes directly in array
         $data = [
             "Det omöjliga tar bara lite längre tid - Sir Winston Churchill",
             "Förnuftet är en tjänare, intuitionen är en gåva – Einstein",

@@ -14,7 +14,7 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function addCardsArray ($cards)
+    public function addCardsArray($cards)
     {
         foreach ($cards as $card) {
             $this->add($card);
@@ -40,4 +40,3 @@ class CardHand
         return $values;
     }
 }
-

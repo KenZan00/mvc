@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Card;
+
 use App\Card\Card;
 use App\Card\CardHand;
 
@@ -10,7 +11,7 @@ class DeckOfCards
 
     public function __construct()
     {
-        $this->setupDeck();       
+        $this->setupDeck();
     }
 
     public function setupDeck(): void
@@ -27,7 +28,7 @@ class DeckOfCards
 
     public function draw($amount): array
     {
-        $drawnCards =[]; 
+        $drawnCards = [];
 
         for ($i = $amount; 0 < $i; $i--) {
             $drawnCard = array_pop($this->deck);
@@ -47,7 +48,7 @@ class DeckOfCards
         return count($this->deck);
     }
 
-    public function getDeck(): array 
+    public function getDeck(): array
     {
         return $this->deck;
     }
@@ -61,4 +62,3 @@ class DeckOfCards
         return $values;
     }
 }
-

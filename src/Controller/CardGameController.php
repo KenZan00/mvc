@@ -20,14 +20,13 @@ class CardGameController extends AbstractController
     public function session(
         Request $request,
         SessionInterface $session
-    ): Response
-    {   
+    ): Response {
         $deck = $session->get('card_deck');
-        
+
         $data = [
             'session' => $session->all()
         ];
-    
+
         return $this->render('card/session.html.twig', $data);
     }
 
@@ -35,8 +34,7 @@ class CardGameController extends AbstractController
     public function delete(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $session->clear();
 
         $this->addFlash(
@@ -51,12 +49,10 @@ class CardGameController extends AbstractController
     public function home(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
-        if (!$session->has('card_deck'))
-        {
-        $deck = new DeckOfCards();
-        $session->set("card_deck", $deck);
+    ): Response {
+        if (!$session->has('card_deck')) {
+            $deck = new DeckOfCards();
+            $session->set("card_deck", $deck);
         }
 
         return $this->render('card/home.html.twig');
@@ -65,10 +61,9 @@ class CardGameController extends AbstractController
     #[Route("/card/deck", name: "card_deck")]
     public function cardDeck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = new DeckOfCards();
-        
+
         $allCards = $deck->getString();
 
         $data = [
@@ -81,12 +76,11 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/shuffle", name: "card_shuffle")]
     public function cardShuffle(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = new DeckOfCards();
         $deck->shuffle();
         $session->set("card_deck", $deck);
-        
+
         $allCards = $deck->getString();
 
         $data = [
@@ -96,12 +90,11 @@ class CardGameController extends AbstractController
         return $this->render('card/deck/shuffle.html.twig', $data);
     }
 
-    #[Route("/card/deck/draw", name: "card_draw",methods: ['GET'])]
+    #[Route("/card/deck/draw", name: "card_draw", methods: ['GET'])]
     public function cardDraw(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session->get('card_deck');
         $countCards = $deck->countCards();
 
@@ -110,13 +103,13 @@ class CardGameController extends AbstractController
 
             $hand = new CardHand();
             $hand->addCardsArray($drawn);
-    
+
             $cardsHand = $hand->getString();
         } else {
 
             $cardsHand = [];
         }
-    
+
         $countCards = $deck->countCards();
 
         $data = [
@@ -128,40 +121,40 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "card_draw_num")]
-        public function cardDrawNum(int $num,
+    public function cardDrawNum(
+        int $num,
         SessionInterface $session,
         Request $request
-    ): Response
-    {
-        {   
+    ): Response {
+        {
             $deck = $session->get('card_deck');
 
             // $num = (int)$request->request->get('num', 1);
 
-            
+
             $countCards = $deck->countCards();
-    
+
             if ($countCards > 0) {
                 $drawn = $deck->draw($num);
-    
+
                 $hand = new CardHand();
                 $hand->addCardsArray($drawn);
-        
+
                 $cardsHand = $hand->getString();
             } else {
-    
+
                 $cardsHand = [];
             }
-        
+
             $countCards = $deck->countCards();
-    
+
             $data = [
                 'hand' => $cardsHand,
                 'countCards' => $countCards
             ];
         }
-    
-            return $this->render('card/deck/draw.html.twig', $data);
+
+        return $this->render('card/deck/draw.html.twig', $data);
     }
 
     #[Route("/api", name: "api")]
@@ -177,7 +170,7 @@ class CardGameController extends AbstractController
         $data = [
             "data" => $datas
         ];
-    
+
         return $this->render('api.html.twig', $data);
     }
 

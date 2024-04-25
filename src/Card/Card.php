@@ -29,18 +29,18 @@ class Card
     {
         return "{$this->rank} {$this->suit}";
     }
-} 
+}
 
 
 
 
-    // Läggas i deck istället ? Annan funktion ? 
-    // public function draw()
-    // {
-    //     $randomRankIndex = array_rand($this->ranks);
-    //     $randomSuitIndex = array_rand($this->suits);
+// Läggas i deck istället ? Annan funktion ?
+// public function draw()
+// {
+//     $randomRankIndex = array_rand($this->ranks);
+//     $randomSuitIndex = array_rand($this->suits);
 
-    //     $this->rank = $this->ranks[$randomRankIndex];
-    //     $this->suit = $this->suits[$randomSuitIndex];
+//     $this->rank = $this->ranks[$randomRankIndex];
+//     $this->suit = $this->suits[$randomSuitIndex];
 
-    // }
+// }

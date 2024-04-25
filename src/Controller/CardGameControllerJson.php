@@ -33,18 +33,17 @@ class CardGameControllerJson
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name:"shuffle",  methods: ["POST"])]
+    #[Route("/api/deck/shuffle", name:"shuffle", methods: ["POST"])]
     public function shuffleApi(
         SessionInterface $session,
         Request $request,
-        ): Response
-    {   
+    ): Response {
         $deck = new DeckOfCards();
         $session->set("card_deck", $deck);
 
         $shuffledDeck = $deck->shuffle();
         $shuffledDeck = $deck->getString();
-        
+
         $data = [
             'allCards' => $shuffledDeck,
         ];
@@ -56,12 +55,11 @@ class CardGameControllerJson
         return $response;
     }
 
-    #[Route("/api/deck/draw", name:"draw",  methods: ["POST"])]
+    #[Route("/api/deck/draw", name:"draw", methods: ["POST"])]
     public function drawApi(
         SessionInterface $session,
         Request $request,
-        ): Response
-    {   
+    ): Response {
         $deck = $session->get('card_deck');
         $countCards = $deck->countCards();
 
@@ -70,13 +68,13 @@ class CardGameControllerJson
 
             $hand = new CardHand();
             $hand->addCardsArray($drawn);
-    
+
             $cardsHand = $hand->getString();
         } else {
 
             $cardsHand = [];
         }
-    
+
         $countCards = $deck->countCards();
 
         $data = [
@@ -91,12 +89,11 @@ class CardGameControllerJson
         return $response;
     }
 
-    #[Route("/api/deck/draw/", name:"draw_num",  methods: ["POST"])]
+    #[Route("/api/deck/draw/", name:"draw_num", methods: ["POST"])]
     public function drawNumApi(
         SessionInterface $session,
         Request $request,
-        ): Response
-    {   
+    ): Response {
         $num = (int)$request->request->get('draw_num');
 
         $deck = $session->get('card_deck');
@@ -107,13 +104,13 @@ class CardGameControllerJson
 
             $hand = new CardHand();
             $hand->addCardsArray($drawn);
-    
+
             $cardsHand = $hand->getString();
         } else {
 
             $cardsHand = [];
         }
-    
+
         $countCards = $deck->countCards();
 
         $data = [
