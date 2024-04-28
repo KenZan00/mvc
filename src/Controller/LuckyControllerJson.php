@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use DateTime;
+use DateTimeZone;
 
 class LuckyControllerJson
 {
@@ -48,19 +50,29 @@ class LuckyControllerJson
     public function quote(): Response
     {
         // List of quotes directly in array
-        $data = [
-            "Det omöjliga tar bara lite längre tid - Sir Winston Churchill",
-            "Förnuftet är en tjänare, intuitionen är en gåva – Einstein",
-            "Det finns inget försöka, det finns bara göra eller inte göra – Yoda"
-
-            // Add more routes as needed
+        $quotes = [
+            'Nothing is impossible. The impossible just takes a little longer. Winston Churchill.',
+            'The intuitive mind is a sacred gift and the rational mind is a faithful servant. Einstein',
+            'There is no trying, there is only do or dont. Yoda'
         ];
 
-        $randomDataIndex = array_rand($data);
-        $randomData = $data[$randomDataIndex];
+        $randomDataIndex = array_rand($quotes);
+        $randomQuote = $quotes[$randomDataIndex];
+        
+        // Correct date/time by zone
+        $zone = new DateTimeZone('Europe/Stockholm');
+        $dateTime = new DateTime('now', $zone);
+        $date = $dateTime->format('Y-m-d');
 
+        $time = $dateTime->format('H:i:s'); 
 
-        $response = new JsonResponse($randomData);
+        $data = [
+            'quote' => $randomQuote,
+            'date' => $date,
+            'time' => $time,
+        ];
+
+        $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
