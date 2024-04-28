@@ -20,7 +20,9 @@ class CardGameControllerJson
     public function deckApi(SessionInterface $session): Response
     {
         $deck = new DeckOfCards();
-        $allCards = $deck->getString();
+        $deck->setupDeckText();
+
+        $allCards = $deck->getString();       
 
         $data = [
             'allCards' => $allCards,
@@ -39,6 +41,7 @@ class CardGameControllerJson
         Request $request,
     ): Response {
         $deck = new DeckOfCards();
+        $deck->setupDeckText();
         $session->set("card_deck", $deck);
 
         $shuffledDeck = $deck->shuffle();

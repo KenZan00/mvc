@@ -52,6 +52,7 @@ class CardGameController extends AbstractController
     ): Response {
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
+            $deck->setupDeck();
             $session->set("card_deck", $deck);
         }
 
@@ -63,6 +64,7 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
+        $deck->setupDeck();
 
         $allCards = $deck->getString();
 
@@ -78,7 +80,9 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
+        $deck->setupDeck();
         $deck->shuffle();
+
         $session->set("card_deck", $deck);
 
         $allCards = $deck->getString();
@@ -161,10 +165,11 @@ class CardGameController extends AbstractController
     public function api(): Response
     {
         $datas = [
-            '/api/card/deck => Full Deck of cards - sorted',
-            '/api/card/shuffle => Full Deck of cards - shuffled',
-            '/api/card/draw => Draw 1 card',
-            '/api/card/draw/{num} => Draw {num} cards'
+            '/api/deck => Full Deck of cards - sorted',
+            'POST /api/shuffle => Full Deck of cards - shuffled',
+            'POST /api/draw => Draw 1 card',
+            'POST /api/draw/{num} => Draw {num} cards',
+            'Use buttons to test POST'
         ];
 
         $data = [

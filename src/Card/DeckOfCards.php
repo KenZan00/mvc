@@ -11,7 +11,7 @@ class DeckOfCards
 
     public function __construct()
     {
-        $this->setupDeck();
+      
     }
 
     public function setupDeck(): void
@@ -22,6 +22,18 @@ class DeckOfCards
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
                 $this->deck[] = new CardGraphic($rank, $suit);
+            }
+        }
+    }
+
+    public function setupDeckText(): void
+    {
+        $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+        $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+
+        foreach ($suits as $suit) {
+            foreach ($ranks as $rank) {
+                $this->deck[] = new Card($rank, $suit);
             }
         }
     }
