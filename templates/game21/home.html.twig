@@ -3,13 +3,26 @@
 {% block title %}Card game{% endblock %}
 
 {% block body %}
-<h1>Card game</h1>
+<h1>The game 21</h1>
 
-<p>Spela 21</p>
-
-<p>Spelet 21 startsida</p>
+<h2>Regler</h2>
 
 
+<p>Spelet 21 går ut på att få värdet 21, eller komma så nära värdet 21 som det går utan att bli "tjock" på 2 elelr fler kort. Valörerna är värda lika mycket som dess valöra.</p>
+<p>Klädda kort är värda enligt följande:</p>
+
+<ul>
+    <li>Knekt = 11</li>
+    <li>Dam = 12</li>
+    <li>Kung = 13</li>
+    <li>Ess = 14 alternativt 1</li>
+</ul>
+
+Dra minst två kort, välj sedan att stanna för att ge över turen till "banken" som sedan drar sina kort och försöker få en högra summa än spelaren utan att överstiga 21, vid lika värde eller 21 vinner "banken". Den som har högst summa vinner.
+
+<form method="post" action="">
+    <input type="submit" name="start_21" value="Start playing">
+</form>
 
 
 
