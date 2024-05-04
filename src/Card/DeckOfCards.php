@@ -21,7 +21,8 @@ class DeckOfCards
 
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
-                $this->deck[] = new CardGraphic($rank, $suit);
+                $value = $this->setValue($rank);
+                $this->deck[] = new CardGraphic($rank, $suit, $value);
             }
         }
     }
@@ -33,12 +34,34 @@ class DeckOfCards
 
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
-                $this->deck[] = new Card($rank, $suit);
+                $value = $this->setValue($rank);
+                $this->deck[] = new Card($rank, $suit, $value);
             }
         }
     }
 
-    public function draw($amount): array
+    public function setValue($rank)
+    {
+        if (is_numeric($rank)) {
+            $value = (int)$rank;
+        }
+        else if ($rank === 'Ace') {
+            $value = 14;
+        }
+        else if ($rank === 'Jack') {
+            $value = 11;
+        }
+        else if ($rank === 'Queen') {
+            $value = 12;
+        }
+        else if ($rank === 'King') {
+            $value = 13;
+        }
+        
+        return (int)$value;
+    }
+
+        public function draw($amount): array
     {
         $drawnCards = [];
 

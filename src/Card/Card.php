@@ -6,20 +6,25 @@ class Card
 {
     protected $rank;
     protected $suit;
+    protected $value;
 
-    public function __construct($rank, $suit)
+    public function __construct($rank, $suit, $value)
     {
         $this->rank = $rank;
         $this->suit = $suit;
+        $this->value = $value;
     }
 
-    // Baserat på tärning, ser om det behövs
     public function getSuit()
     {
         return $this->suit;
     }
 
     public function getRank()
+    {
+        return $this->rank;
+    }
+    public function getValue()
     {
         return $this->rank;
     }
