@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TheGame21Controller extends AbstractController
 {
-        #[Route("/game", name: "game")]
+    #[Route("/game", name: "game")]
     public function home(
         Request $request,
         SessionInterface $session
@@ -24,6 +24,16 @@ class TheGame21Controller extends AbstractController
         
 
         return $this->render('game21/home.html.twig');
+    }
+
+    #[Route("/game/doc", name: "game_doc")]
+    public function gameDoc(
+        Request $request,
+        SessionInterface $session
+    ): Response {
+        
+
+        return $this->render('game21/doc.html.twig');
     }
     // #[Route("/session", name: "card_session", methods: ['GET'])]
     // public function session(

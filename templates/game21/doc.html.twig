@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card game{% endblock %}
+
+{% block body %}
+<h1>The game 21</h1>
+
+<h2>Dokumentation</h2>
+
+<p>Här kommer dokumentation som pseudo-kod och flödesscheman över spelet</p>
+
+<h3>Flowchart game21</h3>
+<a href="{{ asset('img/flowchart_game21.jpeg') }}">
+    <img src="{{ asset('img/flowchart_game21.jpeg') }}" alt="" style="width: 450px; height: auto;">
+</a>
+
+<h3>Pseudo code game21</h3>
+<pre>
+    <code>
+    Starta spelet 21
+        Skapa en kortlek som blandas
+        Presentera spelarens kort
+
+        Fråga spelaren om att dra kort
+            OM spelaren vill dra ett kort
+                Dra kort
+                Lägg till poäng
+                OM poäng är över 21
+                    Avsluta spelet - Spelaren förlorade
+                
+            
+            OM spelaren INTE drar kort
+                Banken drar kort tills ett villkor är uppfyllt
+                Lägg till poäng
+                OM poäng är över 21
+                    Avsluta spelet - Spelaren vann
+                
+            
+
+            Jämför spelarens och bankens poäng
+            OM Banken har högre poäng eller 21
+                Presentera spelaren som förlorare
+            OM Banken har lägre poäng än spelaren
+                Presentera spelaren som vinnare            
+                
+        Avsluta spelet
+    Spela igen ? 
+    </code>
+</pre>
+
+<h2>Klasser som troligt implementeras</h2>
+    <h3>Class - Game21</h3>
+        <p>Logik och beräkningar samt initering av spelet 21, från denna klass skapas spelet med rätt regler, logik och kortlek.</p>
+    <h3>Class - Player</h3>
+        <p>Jag tänker mig denna klass som ett sätt att framtidssäkra koden så att man kan lägga till spelare. I spelet 21 kommer det dock vara 1 spelare och "banken". Spelaren skall kunna kopplas till en hand med kort och dess poäng.</p>
+
+
+{% endblock %}
