@@ -43,30 +43,34 @@ class DeckOfCards
     public function setValue($rank)
     {
         if (is_numeric($rank)) {
-            $value = (int)$rank;
+            return (int)$rank;
         }
-        else if ($rank === 'Ace') {
-            $value = 14;
+    
+        if ($rank === 'Ace') {
+            return 14;
         }
-        else if ($rank === 'Jack') {
-            $value = 11;
+    
+        if ($rank === 'Jack') {
+            return 11;
         }
-        else if ($rank === 'Queen') {
-            $value = 12;
+    
+        if ($rank === 'Queen') {
+            return 12;
         }
-        else if ($rank === 'King') {
-            $value = 13;
+    
+        if ($rank === 'King') {
+            return 13;
         }
-        
-        return (int)$value;
+
+        return 0;
     }
 
-        public function draw($amount): array
+    public function draw($amount): array
     {
         $drawnCards = [];
 
         for ($i = $amount; 0 < $i; $i--) {
-            $drawnCard = array_pop($this->deck);
+            $drawnCard = array_shift($this->deck);
             $drawnCards[] = $drawnCard;
         }
         return $drawnCards;

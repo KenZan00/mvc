@@ -21,6 +21,15 @@ class CardHand
         }
     }
 
+    public function handValue(): int
+    {
+        $value = 0;
+        foreach ($this->hand as $card) {
+            $value += $card->getValue(); 
+        }
+        return (int)$value;
+    } 
+
     public function getHand(): array
     {
         return $this->hand;
