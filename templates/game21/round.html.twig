@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card game{% endblock %}
+
+{% block body %}
+<h1>The game 21</h1>
+
+<h2>Hej och välkommen till spela 21, rundan är nu startad / initierad och vi skall börja testa att rendera svar från sessionen.</h2>
+
+
+<p>Vi börjar med spelarens kort:</p>
+<ul>
+    {% for cards in playerHand %}
+        <li>{{ cards }}</li>
+    {% endfor %}
+</ul>
+<p>Totalt värde: {{ playerValue }}</p>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="draw" value="Draw card"
+            onClick="this.form.action='{{ path('game_draw') }}';"
+        >
+        {# <input type="submit" name="stop" value="Stop"
+            onClick="this.form.action='{{ path('pig_save') }}';"
+        >
+
+        <input type="submit" name="restart" value="Restart"
+            onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';"
+        > #}
+    </p>
+</form>
+
+{% endblock %}
