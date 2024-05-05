@@ -6,6 +6,7 @@ use App\Card\Card;
 use App\Card\CardGraphic;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
+use App\Card\Game21;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -16,14 +17,69 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TheGame21Controller extends AbstractController
 {
-    #[Route("/game", name: "game")]
-    public function home(
+    #[Route("/game", name: "game", methods: ['GET'])]
+    public function game21(
         Request $request,
         SessionInterface $session
     ): Response {
         
 
         return $this->render('game21/home.html.twig');
+    }
+
+    #[Route("/game", name: "game_post", methods: ['POST'])]
+    public function game21Callback(
+        SessionInterface $session
+    ): Response {
+        
+        $deck = new DeckOfCards();
+        $playersHand = new CardHand();
+        $banksHand = new CardHand();
+
+        $game = new game21($deck, $playersHand, $banksHand);
+        
+        $game->start21(); // Start game, iniate deck & shuffle, deal 1 player card.
+
+        $session->set("game21_deck", $deck);
+        $session->set("game21_player", $playersHand);
+        $session->set("game21_bank", $banksHand);
+
+
+        return $this->redirectToRoute('game_round');
+    }
+
+    #[Route("/game/round", name: "game_round", methods: ['GET'])]
+    public function game21Round(
+        SessionInterface $session
+    ): Response {
+        
+        $playerHand = $session->get("game21_player");
+
+        $playerTotal = $playerHand->handValue();
+
+        $data = [
+            "playerHand" => $playerHand->getString(),
+            "playerValue" => $playerTotal
+        ];
+
+        return $this->render('game21/round.html.twig', $data);
+    }
+
+    #[Route("/game/round", name: "game_draw", methods: ['POST'])]
+    public function game21Draw(
+        SessionInterface $session
+    ): Response {
+        
+        $deck = $session->get("game21_deck");
+        $playerHand = $session->get("game21_player");
+        
+        $card = $deck->draw(1);
+
+        $playerHand->addCardsArray($card);
+
+        $session->set("game21_player", $playerHand);
+
+        return $this->redirectToRoute('game_round');
     }
 
     #[Route("/game/doc", name: "game_doc")]
