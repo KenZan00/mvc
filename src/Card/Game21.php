@@ -29,4 +29,17 @@ class Game21
         $this->player->addCardsArray($playersCard);
     }
 
+    public function checkAceValue(CardHand $cards): int
+    {
+        $totValue = $cards->handValue();
+        $aces = $cards->aces();
+
+        while ($totValue > 21 && 0 < $aces) {
+            $totValue -= 13;
+            $aces--;
+        }
+        
+        return (int)$totValue;
+    }
+
 }

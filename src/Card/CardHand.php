@@ -4,6 +4,7 @@ namespace App\Card;
 
 use App\Card\Card;
 use App\Card\DeckOfCards;
+use App\Card\Game21;
 
 class CardHand
 {
@@ -47,5 +48,16 @@ class CardHand
             $values[] = $card->getAsString();
         }
         return $values;
+    }
+
+    public function aces(): int
+    {
+        $aces = 0;
+        foreach($this->hand as $card) {
+            if ($card->getRank() === 'Ace') {
+                $aces++;
+            }
+        }
+        return $aces;
     }
 }
