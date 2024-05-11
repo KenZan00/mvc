@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Card\Card;
-use App\Card\CardGraphic;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
 
@@ -17,12 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CardGameControllerJson
 {
     #[Route("/api/deck")]
-    public function deckApi(SessionInterface $session): Response
+    public function deckApi(): Response
     {
         $deck = new DeckOfCards();
         $deck->setupDeckText();
 
-        $allCards = $deck->getString();       
+        $allCards = $deck->getString();
 
         $data = [
             'allCards' => $allCards,
@@ -38,7 +36,6 @@ class CardGameControllerJson
     #[Route("/api/deck/shuffle", name:"shuffle", methods: ["POST"])]
     public function shuffleApi(
         SessionInterface $session,
-        Request $request,
     ): Response {
         $deck = new DeckOfCards();
         $deck->setupDeckText();
@@ -61,7 +58,6 @@ class CardGameControllerJson
     #[Route("/api/deck/draw", name:"draw", methods: ["POST"])]
     public function drawApi(
         SessionInterface $session,
-        Request $request,
     ): Response {
         $deck = $session->get('card_deck');
         $countCards = $deck->countCards();

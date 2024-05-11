@@ -4,27 +4,27 @@ namespace App\Card;
 
 class Card
 {
-    protected $rank;
-    protected $suit;
-    protected $value;
+    protected string $rank;
+    protected string $suit;
+    protected int $value;
 
-    public function __construct($rank, $suit, $value)
+    public function __construct(string $rank, string $suit, int $value)
     {
         $this->rank = $rank;
         $this->suit = $suit;
         $this->value = $value;
     }
 
-    public function getSuit()
+    public function getSuit(): string
     {
         return $this->suit;
     }
 
-    public function getRank()
+    public function getRank(): string
     {
         return $this->rank;
     }
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
@@ -35,17 +35,3 @@ class Card
         return "{$this->rank} {$this->suit}";
     }
 }
-
-
-
-
-// Läggas i deck istället ? Annan funktion ?
-// public function draw()
-// {
-//     $randomRankIndex = array_rand($this->ranks);
-//     $randomSuitIndex = array_rand($this->suits);
-
-//     $this->rank = $this->ranks[$randomRankIndex];
-//     $this->suit = $this->suits[$randomSuitIndex];
-
-// }

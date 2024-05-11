@@ -3,15 +3,18 @@
 namespace App\Card;
 
 class CardGraphic extends Card
-{
-    private $representation = [
+{   
+    /**
+    * @var array<string, string> $representation
+    */
+    private array $representation = [
         'Spades' => '♠',
         'Hearts' => '♥',
         'Diamonds' => '♦',
         'Clubs' => '♣',
     ];
 
-    public function __construct($rank, $suit, $value)
+    public function __construct(string $rank, string $suit, int $value)
     {
         parent::__construct($rank, $suit, $value);
     }

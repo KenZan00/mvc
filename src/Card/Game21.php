@@ -2,15 +2,14 @@
 
 namespace App\Card;
 
-use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
 
 class Game21
 {
-    private $deck;
-    private $player;
-    private $bank;
+    private DeckOfCards $deck;
+    private CardHand $player;
+    private CardHand $bank;
 
     public function __construct(DeckOfCards $deck, CardHand $player, CardHand $bank)
     {
@@ -34,7 +33,7 @@ class Game21
         return $this->bank;
     }
 
-    public function start21()
+    public function start21(): void
     {
         $this->deck->setupDeck();
         $this->deck->shuffle();
@@ -44,16 +43,16 @@ class Game21
         $this->player->addCardsArray($playersCard);
     }
 
-    public function bankDraw()
-    {   
+    public function bankDraw(): int
+    {
         $bankHandValue = $this->checkAceValue($this->bank);
 
         while ($bankHandValue < 17) {
             $card = $this->deck->draw(1);
             $this->bank->add($card[0]);
 
-            $bankHandValue = $this->checkAceValue($this->bank);  
-        } 
+            $bankHandValue = $this->checkAceValue($this->bank);
+        }
 
         return $bankHandValue;
     }
@@ -77,10 +76,10 @@ class Game21
         $playerTotal = $this->checkAceValue($this->player);
 
         switch (true) {
-            case $bankTotal > 21:
-                return 'Player Wins, Bank get bust';
             case $playerTotal > 21:
                 return 'Bank Wins, Player get bust';
+            case $bankTotal > 21:
+                return 'Player Wins, Bank get bust';
             case $playerTotal < $bankTotal:
                 return 'Bank Wins by points';
             case $playerTotal > $bankTotal:

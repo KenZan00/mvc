@@ -58,13 +58,13 @@ class LuckyControllerJson
 
         $randomDataIndex = array_rand($quotes);
         $randomQuote = $quotes[$randomDataIndex];
-        
+
         // Correct date/time by zone
         $zone = new DateTimeZone('Europe/Stockholm');
         $dateTime = new DateTime('now', $zone);
         $date = $dateTime->format('Y-m-d');
 
-        $time = $dateTime->format('H:i:s'); 
+        $time = $dateTime->format('H:i:s');
 
         $data = [
             'quote' => $randomQuote,

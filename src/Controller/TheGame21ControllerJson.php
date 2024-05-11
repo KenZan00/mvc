@@ -1,13 +1,8 @@
 <?php
 
 namespace App\Controller;
+use App\Card\Game21;
 
-use App\Card\Card;
-use App\Card\CardGraphic;
-use App\Card\DeckOfCards;
-use App\Card\CardHand;
-
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,115 +11,31 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TheGame21ControllerJson
 {
-    // #[Route("/api/deck")]
-    // public function deckApi(SessionInterface $session): Response
-    // {
-    //     $deck = new DeckOfCards();
-    //     $deck->setupDeckText();
+    #[Route("/api/game")]
+    public function game21Api(SessionInterface $session): Response
+    {   
+        /** 
+         * @var Game21 $game
+         */
+        $game = $session->get("game21_logic");
 
-    //     $allCards = $deck->getString();       
+        $playerHand = $game->getPlayerHand();
+        $bankHand = $game->getBankHand();
 
-    //     $data = [
-    //         'allCards' => $allCards,
-    //     ];
+        $playerAdjusted = $game->checkAceValue($playerHand);
+        $bankAdjusted = $game->checkAceValue($bankHand);
 
-    //     $response = new JsonResponse($data);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
+        $data = [
+            "playerHand" => $playerHand->getString(),
+            "playerValue" => $playerAdjusted,
+            "bankHand" => $bankHand->getString(),
+            "bankValue" => $bankAdjusted
+        ];
 
-    // #[Route("/api/deck/shuffle", name:"shuffle", methods: ["POST"])]
-    // public function shuffleApi(
-    //     SessionInterface $session,
-    //     Request $request,
-    // ): Response {
-    //     $deck = new DeckOfCards();
-    //     $deck->setupDeckText();
-    //     $session->set("card_deck", $deck);
-
-    //     $shuffledDeck = $deck->shuffle();
-    //     $shuffledDeck = $deck->getString();
-
-    //     $data = [
-    //         'allCards' => $shuffledDeck,
-    //     ];
-
-    //     $response = new JsonResponse($data);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
-
-    // #[Route("/api/deck/draw", name:"draw", methods: ["POST"])]
-    // public function drawApi(
-    //     SessionInterface $session,
-    //     Request $request,
-    // ): Response {
-    //     $deck = $session->get('card_deck');
-    //     $countCards = $deck->countCards();
-
-    //     if ($countCards > 0) {
-    //         $drawn = $deck->draw(1);
-
-    //         $hand = new CardHand();
-    //         $hand->addCardsArray($drawn);
-
-    //         $cardsHand = $hand->getString();
-    //     } else {
-
-    //         $cardsHand = [];
-    //     }
-
-    //     $countCards = $deck->countCards();
-
-    //     $data = [
-    //         'hand' => $cardsHand,
-    //         'countCards' => $countCards
-    //     ];
-
-    //     $response = new JsonResponse($data);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
-
-    // #[Route("/api/deck/draw/", name:"draw_num", methods: ["POST"])]
-    // public function drawNumApi(
-    //     SessionInterface $session,
-    //     Request $request,
-    // ): Response {
-    //     $num = (int)$request->request->get('draw_num');
-
-    //     $deck = $session->get('card_deck');
-    //     $countCards = $deck->countCards();
-
-    //     if ($countCards > 0) {
-    //         $drawn = $deck->draw($num);
-
-    //         $hand = new CardHand();
-    //         $hand->addCardsArray($drawn);
-
-    //         $cardsHand = $hand->getString();
-    //     } else {
-
-    //         $cardsHand = [];
-    //     }
-
-    //     $countCards = $deck->countCards();
-
-    //     $data = [
-    //         'hand' => $cardsHand,
-    //         'countCards' => $countCards
-    //     ];
-
-    //     $response = new JsonResponse($data);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+        return $response;
+    }
 }

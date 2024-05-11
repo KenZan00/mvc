@@ -3,19 +3,24 @@
 namespace App\Card;
 
 use App\Card\Card;
-use App\Card\DeckOfCards;
-use App\Card\Game21;
 
 class CardHand
-{
-    private $hand = [];
+{   
+    /**
+     * @var array<Card>
+     */
+    private array $hand = [];
 
     public function add(Card $card): void
     {
         $this->hand[] = $card;
     }
 
-    public function addCardsArray($cards)
+    /**
+     * @param array<Card> $cards
+     * @return void
+     */
+    public function addCardsArray(array $cards): void
     {
         foreach ($cards as $card) {
             $this->add($card);
@@ -26,11 +31,14 @@ class CardHand
     {
         $value = 0;
         foreach ($this->hand as $card) {
-            $value += $card->getValue(); 
+            $value += $card->getValue();
         }
         return (int)$value;
-    } 
+    }
 
+    /**
+     * @return array<Card>
+     */
     public function getHand(): array
     {
         return $this->hand;
@@ -41,6 +49,9 @@ class CardHand
         return count($this->hand);
     }
 
+    /**
+     * @return array<string>
+     */
     public function getString(): array
     {
         $values = [];

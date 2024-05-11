@@ -3,15 +3,17 @@
 namespace App\Card;
 
 use App\Card\Card;
-use App\Card\CardHand;
 
 class DeckOfCards
-{
-    private $deck = [];
+{   
+    /**
+     * @var array<Card>
+     */
+    private array $deck = [];
 
     public function __construct()
     {
-      
+
     }
 
     public function setupDeck(): void
@@ -40,36 +42,40 @@ class DeckOfCards
         }
     }
 
-    public function setValue($rank)
+    public function setValue(string $rank): int
     {
         if (is_numeric($rank)) {
             return (int)$rank;
         }
-    
+
         if ($rank === 'Ace') {
             return 14;
         }
-    
+
         if ($rank === 'Jack') {
             return 11;
         }
-    
+
         if ($rank === 'Queen') {
             return 12;
         }
-    
+
         if ($rank === 'King') {
             return 13;
         }
 
         return 0;
     }
-
-    public function draw($amount): array
+    
+    /**
+     * @param int $amount Number cards to draw
+     * @return array<Card> Returns array of drawn cards
+     */
+    public function draw(int $amount): array
     {
         $drawnCards = [];
 
-        for ($i = $amount; 0 < $i; $i--) {
+        for ($i = $amount; $i > 0 && !empty($this->deck); $i--) {
             $drawnCard = array_shift($this->deck);
             $drawnCards[] = $drawnCard;
         }
@@ -87,11 +93,17 @@ class DeckOfCards
         return count($this->deck);
     }
 
+    /**
+     * @return array<Card>
+     */
     public function getDeck(): array
     {
         return $this->deck;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getString(): array
     {
         $values = [];
