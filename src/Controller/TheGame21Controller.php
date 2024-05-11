@@ -40,11 +40,8 @@ class TheGame21Controller extends AbstractController
         
         $game->start21(); // Start game, iniate deck & shuffle, deal 1 player card.
 
-        $session->set("game21_deck", $deck);
-        $session->set("game21_player", $playersHand);
-        $session->set("game21_bank", $banksHand);
+        //The Deck and both hands get saved in the "logic
         $session->set("game21_logic", $game);
-
 
         return $this->redirectToRoute('game_round');
     }
@@ -55,14 +52,17 @@ class TheGame21Controller extends AbstractController
     ): Response {
         
         $game = $session->get("game21_logic");
-        $playerHand = $session->get("game21_player");
+        $playerHand = $game->getPlayerHand();
+        $bankHand = $game->getBankHand();
 
-        $playerTotal = $playerHand->handValue();
         $playerAdjusted = $game->checkAceValue($playerHand);
+        $bankAdjusted = $game->checkAceValue($bankHand);
 
         $data = [
             "playerHand" => $playerHand->getString(),
-            "playerValue" => $playerAdjusted
+            "playerValue" => $playerAdjusted,
+            "bankHand" => $bankHand->getString(),
+            "bankValue" => $bankAdjusted
         ];
 
         return $this->render('game21/round.html.twig', $data);
@@ -73,15 +73,14 @@ class TheGame21Controller extends AbstractController
         SessionInterface $session
     ): Response {
         
-        $deck = $session->get("game21_deck");
-        $playerHand = $session->get("game21_player");
         $game = $session->get("game21_logic");
+        $playerHand = $game->getPlayerHand();
+        $deck = $game->getDeck();
         
         $card = $deck->draw(1);
 
         $playerHand->addCardsArray($card);
 
-        $playerTotal = $playerHand->handValue();
         $playerAdjusted = $game->checkAceValue($playerHand);
 
         if ($playerAdjusted > 21) {
@@ -92,7 +91,24 @@ class TheGame21Controller extends AbstractController
             );            
         }
 
-        $session->set("game21_player", $playerHand);
+        return $this->redirectToRoute('game_round');
+    }
+
+    #[Route("/game/stop", name: "game_stop", methods: ['POST'])]
+    public function game21Stop(
+        SessionInterface $session
+    ): Response {
+        
+        $game = $session->get("game21_logic");
+        
+        $game->bankDraw();
+        $winner = $game->comparePoints();
+
+        if ($winner) {
+            $this->addFlash(
+                'notice', $winner
+            );            
+         }
 
         return $this->redirectToRoute('game_round');
     }
@@ -100,9 +116,7 @@ class TheGame21Controller extends AbstractController
     #[Route("/game/restart", name: "game_restart",  methods: ['GET'])]
     public function restartGame(SessionInterface $session): Response {
         
-        $session->remove("game21_deck");
-        $session->remove("game21_player");
-        $session->remove("game21_bank");
+        $session->remove("game21_logic");
 
         $deck = new DeckOfCards();
         $playersHand = new CardHand();
@@ -112,9 +126,8 @@ class TheGame21Controller extends AbstractController
         
         $game->start21(); // Start game, iniate deck & shuffle, deal 1 player card.
 
-        $session->set("game21_deck", $deck);
-        $session->set("game21_player", $playersHand);
-        $session->set("game21_bank", $banksHand);
+        $session->set("game21_logic", $game);
+
     
         return $this->redirectToRoute('game_round');
     }

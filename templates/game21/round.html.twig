@@ -17,6 +17,15 @@
 
 <p>Totalt värde: {{ playerValue }}</p>
 
+<p>Bankens kort:</p>
+<ul>
+    {% for cards in bankHand %}
+        <li>{{ cards }}</li>
+    {% endfor %}
+</ul>
+
+<p>Totalt värde: {{ bankValue }}</p>
+
 {{ include('flash.html.twig') }}
 
 <form method="post" action="">
@@ -24,9 +33,9 @@
         <input type="submit" name="draw" value="Draw card"
             onClick="this.form.action='{{ path('game_draw') }}';"
         >
-        {# <input type="submit" name="stop" value="Stop"
-            onClick="this.form.action='{{ path('pig_save') }}';"
-        > #}
+        <input type="submit" name="stop" value="Stop"
+            onClick="this.form.action='{{ path('game_stop') }}';"
+        >
 
         <input type="submit" name="restart" value="Restart"
             onClick="this.form.action='{{ path('game_restart') }}';this.form.method='get';"
