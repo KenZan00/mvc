@@ -5,24 +5,26 @@
 {% block body %}
 <h1>The game 21</h1>
 
-<h2>Hej och välkommen till spela 21, rundan är nu startad / initierad och vi skall börja testa att rendera svar från sessionen.</h2>
+<h2>Play 21 - Draw at least 2 cards and try to win.</h2>
 
+<h3>Spelarens kort</h3>
+<div class="card-box">
 
-<p>Vi börjar med spelarens kort:</p>
-<ul>
-    {% for cards in playerHand %}
-        <li>{{ cards }}</li>
+    {% for card in playerHand %}
+        <span class="card">{{ card }}</span>
     {% endfor %}
-</ul>
+</div>
 
 <p>Totalt värde: {{ playerValue }}</p>
 
-<p>Bankens kort:</p>
-<ul>
-    {% for cards in bankHand %}
-        <li>{{ cards }}</li>
+<h3>Bankens kort</h3>
+<div class="card-box">
+
+    {% for card in bankHand %}
+        <span class="card">{{ card }}</span>
     {% endfor %}
-</ul>
+</div>
+
 
 <p>Totalt värde: {{ bankValue }}</p>
 

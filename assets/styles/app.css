@@ -145,3 +145,27 @@ ul.dicearea li {
 .flash-warning:before {
     content: "⚠";
 }
+
+.card-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+
+    border: 1.5px solid;
+    border-radius: 10px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
