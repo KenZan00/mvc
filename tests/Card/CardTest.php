@@ -84,10 +84,4 @@ class CardTest extends TestCase
         $this->assertEquals($cardString, $teststring);
 
     }
-
-
-    // public function getAsString(): string
-    // {
-    //     return "{$this->rank} {$this->suit}";
-    // }
 }
