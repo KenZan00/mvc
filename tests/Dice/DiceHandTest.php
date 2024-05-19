@@ -9,25 +9,25 @@ use PHPUnit\Framework\TestCase;
  */
 class DiceHandTest extends TestCase
 {
-/**
- * Stub the dices to assure the value can be asserted.
- */
-public function testAddStubbedDices()
-{
-    // Create a stub for the Dice class.
-    $stub = $this->createMock(Dice::class);
+    /**
+     * Stub the dices to assure the value can be asserted.
+     */
+    public function testAddStubbedDices()
+    {
+        // Create a stub for the Dice class.
+        $stub = $this->createMock(Dice::class);
 
-    // Configure the stub.
-    $stub->method('roll')
-        ->willReturn(6);
-    $stub->method('getValue')
-        ->willReturn(6);
+        // Configure the stub.
+        $stub->method('roll')
+            ->willReturn(6);
+        $stub->method('getValue')
+            ->willReturn(6);
 
-    $dicehand = new DiceHand();
-    $dicehand->add(clone $stub);
-    $dicehand->add(clone $stub);
-    $dicehand->roll();
-    $res = $dicehand->sum();
-    $this->assertEquals(12, $res);
-}
+        $dicehand = new DiceHand();
+        $dicehand->add(clone $stub);
+        $dicehand->add(clone $stub);
+        $dicehand->roll();
+        $res = $dicehand->sum();
+        $this->assertEquals(12, $res);
+    }
 }

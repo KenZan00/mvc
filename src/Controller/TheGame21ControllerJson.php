@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Card\Game21;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -13,8 +14,8 @@ class TheGame21ControllerJson
 {
     #[Route("/api/game")]
     public function game21Api(SessionInterface $session): Response
-    {   
-        /** 
+    {
+        /**
          * @var Game21 $game
          */
         $game = $session->get("game21_logic");

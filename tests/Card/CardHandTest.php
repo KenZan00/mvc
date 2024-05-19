@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
  */
 class CardHandTest extends TestCase
 {
-    public function testCreateCardHand()
-    {    
+    public function testCreateCardHand(): void
+    {
         // Create a stub for the Card class.
         $stub = $this->createMock(Card::class);
 
@@ -33,16 +33,16 @@ class CardHandTest extends TestCase
             $this->assertEquals('Ace', $testCard->getRank());
             $this->assertEquals('Diamonds', $testCard->getSuit());
             $this->assertEquals(14, $testCard->getValue());
-            }
+        }
     }
 
-    public function testAddCardHandThruArray()
-    {    
+    public function testAddCardHandThruArray(): void
+    {
         // Instantiate classes
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('Jack', 'Spades', 11);
         $card3 = new Card('10', 'Clubs', 10);
-        
+
         $testCards = [$card, $card2, $card3];
 
         $cardHand = new CardHand();
@@ -50,15 +50,15 @@ class CardHandTest extends TestCase
         //Add and get cards
         $cardHand->addCardsArray($testCards);
         $getCardHand = $cardHand->getHand();
-        
+
         //Assert single cards from array
         $this->assertEquals($card, $getCardHand[0]);
         $this->assertEquals($card2, $getCardHand[1]);
         $this->assertEquals($card3, $getCardHand[2]);
 
     }
-   
-    public function testHandValue()
+
+    public function testHandValue(): void
     {
         $card = new Card('10', 'Clubs', 10);
         $cardHand = new CardHand();
@@ -69,19 +69,19 @@ class CardHandTest extends TestCase
         $this->assertEquals(10, $cardHandValue);
     }
 
-    public function testGetNumCards ()
+    public function testGetNumCards(): void
     {
         $card = new Card('10', 'Clubs', 10);
         $cardHand = new CardHand();
 
         $cardHand->add($card);
         // $numCards = $cardHand->getNumCards();
-        
+
         $this->assertSame(1, $cardHand->getNumCards());
         $this->assertIsInt($cardHand->getNumCards());
     }
 
-    public function testGetStringHand()
+    public function testGetStringHand(): void
     {
         $card = new Card('10', 'Clubs', 10);
         $cardHand = new CardHand();
@@ -92,13 +92,13 @@ class CardHandTest extends TestCase
         $this->assertEquals('10 Clubs', $cardString[0]);
         $this->assertIsArray($cardString);
     }
-    
-    public function testAces()
+
+    public function testAces(): void
     {
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('Ace', 'Spades', 14);
         $card3 = new Card('Ace', 'Clubs', 14);
-        
+
         $testCards = [$card, $card2, $card3];
 
         $cardHand = new CardHand();
@@ -107,7 +107,7 @@ class CardHandTest extends TestCase
         $cardHand->addCardsArray($testCards);
 
         $count = $cardHand->aces();
-        
+
         $this->assertEquals(3, $count);
         $this->assertIsInt($count);
     }

@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
  */
 class DeckOfCardsTest extends TestCase
 {
-    public function testSetupDeck()
-    {    
+    public function testSetupDeck(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
         $deckOfCards = $deck->getDeck();
@@ -21,11 +21,11 @@ class DeckOfCardsTest extends TestCase
             $this->assertInstanceOf(Card::class, $testCard);
         }
 
-        
+
     }
 
-    public function testSetupDeckText()
-    {    
+    public function testSetupDeckText(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeckText();
         $deckOfCards = $deck->getDeck();
@@ -36,57 +36,57 @@ class DeckOfCardsTest extends TestCase
             $this->assertInstanceOf(Card::class, $testCard);
         }
 
-        
+
     }
 
-    public function testSetValue()
+    public function testSetValue(): void
     {
         $deck = new DeckOfCards();
         $deck->setupDeck();
         $deckOfCards = $deck->getDeck();
 
         foreach ($deckOfCards as $testCard) {
-            
+
             $value = $testCard->getValue();
             $rank = $testCard->getRank();
 
             if (is_numeric($rank)) {
                 $this->assertEquals($testCard->getRank(), $value);
             } else {
-            switch($rank) {
-                case 'Ace':
-                    $this->assertEquals(14, $value);
-                    break;           
-                case 'King':
-                    $this->assertEquals(13, $value);
-                    break;
-                case 'Queen':
-                    $this->assertEquals(12, $value);
-                    break;
-                case 'Jack':
-                    $this->assertEquals(11, $value);
-                    break;
-                default:
-                    $this->assertEquals(0, $value);  
-                }                 
-                
+                switch($rank) {
+                    case 'Ace':
+                        $this->assertEquals(14, $value);
+                        break;
+                    case 'King':
+                        $this->assertEquals(13, $value);
+                        break;
+                    case 'Queen':
+                        $this->assertEquals(12, $value);
+                        break;
+                    case 'Jack':
+                        $this->assertEquals(11, $value);
+                        break;
+                    default:
+                        $this->assertEquals(0, $value);
+                }
+
             }
 
         }
 
     }
 
-    public function testSetValueZeroValidation()
-    {   
+    public function testSetValueZeroValidation(): void
+    {
         $rank = 'Joker';
-        $deck = new DeckOfCards;
+        $deck = new DeckOfCards();
 
         $cardValue = $deck->setValue($rank);
         $this->assertEquals(0, $cardValue);
     }
 
-    public function testDrawCard()
-    {    
+    public function testDrawCard(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
@@ -98,41 +98,40 @@ class DeckOfCardsTest extends TestCase
 
         foreach ($cards as $card) {
             $this->assertInstanceOf(Card::class, $card);
-        }        
+        }
     }
 
-    public function testShuffleMethod()
-    {    
+    public function testShuffleMethod(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
         $UnshuffledDeck = $deck->getDeck();
         $deck->shuffle();
         $shuffledDeck = $deck->getDeck();
-        
-        $this->assertNotEquals($UnshuffledDeck, $shuffledDeck);       
+
+        $this->assertNotEquals($UnshuffledDeck, $shuffledDeck);
     }
 
-    public function testCountCardsInDeck()
-    {    
+    public function testCountCardsInDeck(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
         $count = $deck->countCards();
 
-        $this->assertEquals(52, $count);       
+        $this->assertEquals(52, $count);
     }
 
-    public function testGetString ()
+    public function testGetString(): void
     {
         $deck = new DeckOfCards();
         $deck->setupDeck();
-        
+
         $cardsInString = $deck->getString();
-        
+
         $this->assertIsArray($cardsInString);
         $this->assertIsString($cardsInString[0]);
         $this->assertEquals('Ace ♠', $cardsInString[0]);
     }
 }
-

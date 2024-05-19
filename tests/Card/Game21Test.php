@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class Game21Test extends TestCase
 {
-    public function test__constructor()
+    public function test__constructor(): void
     {
         $bankHand = $this->createMock(CardHand::class);
         $playerHand = $this->createMock(CardHand::class);
@@ -24,8 +24,8 @@ class Game21Test extends TestCase
         $this->assertEquals($bankHand, $game->getBankHand());
 
     }
-    
-    public function testStart21()
+
+    public function testStart21(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubHand = $this->createMock(CardHand::class);
@@ -44,8 +44,8 @@ class Game21Test extends TestCase
         $game21->start21();
     }
 
-    public function testBankDraw()
-    {   
+    public function testBankDraw(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
@@ -60,8 +60,8 @@ class Game21Test extends TestCase
         $this->assertGreaterThanOrEqual(17, $bankHandValue);
     }
 
-    public function testCheckAceValue()
-    {   
+    public function testCheckAceValue(): void
+    {
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
@@ -70,7 +70,7 @@ class Game21Test extends TestCase
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('10', 'Spades', 10);
         $card3 = new Card('10', 'Clubs', 10);
-        
+
         $testCards = [$card, $card2, $card3];
 
         $cardHand = new CardHand();
@@ -84,16 +84,16 @@ class Game21Test extends TestCase
 
     }
 
-    public function testComparePointsPlayerBust()
+    public function testComparePointsPlayerBust(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubBank = $this->createMock(CardHand::class);
         $stubPlayer = $this->createMock(CardHand::class);
 
-        $game21 = new game21($stubDeck, $stubPlayer, $stubBank);
+        $game21 = new Game21($stubDeck, $stubPlayer, $stubBank);
 
         $stubPlayer->method('handValue')
-                   ->willReturn(25);        
+                   ->willReturn(25);
         $stubBank->method('handValue')
                  ->willReturn(17);
 
@@ -102,16 +102,16 @@ class Game21Test extends TestCase
         $this->assertEquals('Bank Wins, Player get bust', $resultString);
     }
 
-    public function testComparePointsBankBust()
+    public function testComparePointsBankBust(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubBank = $this->createMock(CardHand::class);
         $stubPlayer = $this->createMock(CardHand::class);
 
-        $game21 = new game21($stubDeck, $stubPlayer, $stubBank);
+        $game21 = new Game21($stubDeck, $stubPlayer, $stubBank);
 
         $stubPlayer->method('handValue')
-                   ->willReturn(17);        
+                   ->willReturn(17);
         $stubBank->method('handValue')
                  ->willReturn(25);
 
@@ -120,16 +120,16 @@ class Game21Test extends TestCase
         $this->assertEquals('Player Wins, Bank get bust', $resultString);
     }
 
-    public function testComparePointsBankWinsByPoints()
+    public function testComparePointsBankWinsByPoints(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubBank = $this->createMock(CardHand::class);
         $stubPlayer = $this->createMock(CardHand::class);
 
-        $game21 = new game21($stubDeck, $stubPlayer, $stubBank);
+        $game21 = new Game21($stubDeck, $stubPlayer, $stubBank);
 
         $stubPlayer->method('handValue')
-                   ->willReturn(20);        
+                   ->willReturn(20);
         $stubBank->method('handValue')
                  ->willReturn(21);
 
@@ -138,16 +138,16 @@ class Game21Test extends TestCase
         $this->assertEquals('Bank Wins by points', $resultString);
     }
 
-    public function testComparePointsPlayerWinsByPoints()
+    public function testComparePointsPlayerWinsByPoints(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubBank = $this->createMock(CardHand::class);
         $stubPlayer = $this->createMock(CardHand::class);
 
-        $game21 = new game21($stubDeck, $stubPlayer, $stubBank);
+        $game21 = new Game21($stubDeck, $stubPlayer, $stubBank);
 
         $stubPlayer->method('handValue')
-                   ->willReturn(21);        
+                   ->willReturn(21);
         $stubBank->method('handValue')
                  ->willReturn(20);
 
@@ -156,16 +156,16 @@ class Game21Test extends TestCase
         $this->assertEquals('Player wins by points', $resultString);
     }
 
-    public function testComparePointsTie()
+    public function testComparePointsTie(): void
     {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubBank = $this->createMock(CardHand::class);
         $stubPlayer = $this->createMock(CardHand::class);
 
-        $game21 = new game21($stubDeck, $stubPlayer, $stubBank);
+        $game21 = new Game21($stubDeck, $stubPlayer, $stubBank);
 
         $stubPlayer->method('handValue')
-                   ->willReturn(21);        
+                   ->willReturn(21);
         $stubBank->method('handValue')
                  ->willReturn(21);
 
@@ -175,4 +175,3 @@ class Game21Test extends TestCase
     }
 
 }
-

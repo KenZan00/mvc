@@ -7,14 +7,14 @@ use App\Card\DeckOfCards;
 
 /**
  * Class Game21
- * 
+ *
  * Gamelogic for the game 21.
- * 
+ *
  * @package App\Card
  */
 
 class Game21
-{   
+{
     /** @var DeckOfCards Deck of cards. */
     private DeckOfCards $deck;
 
@@ -26,7 +26,7 @@ class Game21
 
     /**
      * Constructor Game21
-     * 
+     *
      * @param DeckOfCards $deck The deck of cards used in game21.
      * @param CardHand $player Players hand of cards in game21.
      * @param CardHand $bank Banks hand of cards in game21.
@@ -56,7 +56,7 @@ class Game21
     /**
      * Start and initialize game21 by setting upp deck,
      * shuffling and dealing first card to player.
-     * 
+     *
      */
     public function start21(): void
     {
@@ -82,12 +82,12 @@ class Game21
         return $bankHandValue;
     }
 
-     /**
-     * Controll the total hand value, adjust Aces value if hand get bust.
-     * 
-     * @param CardHand $cards The hand of cards to check for aces.
-     * @return int Returns the adjusted value (total value) of the CardHand as integer.
-     */
+    /**
+    * Controll the total hand value, adjust Aces value if hand get bust.
+    *
+    * @param CardHand $cards The hand of cards to check for aces.
+    * @return int Returns the adjusted value (total value) of the CardHand as integer.
+    */
     public function checkAceValue(CardHand $cards): int
     {
         $totValue = $cards->handValue();
@@ -103,7 +103,7 @@ class Game21
 
     /**
      * Compare points to decide the winner of the game.
-     * 
+     *
      * @return string Returns the result of the winner.
      */
     public function comparePoints(): string

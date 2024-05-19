@@ -6,14 +6,14 @@ use App\Card\Card;
 
 /**
  * Class CardHand
- * 
+ *
  * A class that holds a hand of Cards
- * 
+ *
  * @package App\Card
  */
 
 class CardHand
-{   
+{
     /**
      * @var array<Card> Array containing Card
      */
@@ -26,8 +26,8 @@ class CardHand
 
     /**
      * Add array of cards to CardHand
-     * 
-     * @param array<Card> Cards
+     *
+     * @param Card[] $cards Array of Card objects
      * @return void
      */
     public function addCardsArray(array $cards): void
@@ -39,7 +39,7 @@ class CardHand
 
     /**
      * Retrieve total value from the CardHand
-     * 
+     *
      * @return int Hand value as integer
      */
     public function handValue(): int
@@ -53,7 +53,7 @@ class CardHand
 
     /**
      * Retrieve hand of cards
-     * 
+     *
      * @return array<Card> Hand of cards
      */
     public function getHand(): array
@@ -63,7 +63,7 @@ class CardHand
 
     /**
      * Retrieve the number of cards in hand
-     * 
+     *
      * @return int Return number of cards in hand as integer
      */
     public function getNumCards(): int
@@ -73,7 +73,7 @@ class CardHand
 
     /**
      * Retrieve string representation of all the cards in hand
-     * 
+     *
      * @return array<string> Returns string representation of the cards in hand as array
      */
     public function getString(): array
@@ -87,7 +87,7 @@ class CardHand
 
     /**
      *  Method that counts the number of aces in hand
-     * 
+     *
      *  @return int Returns number of aces in hand as integer
      */
     public function aces(): int

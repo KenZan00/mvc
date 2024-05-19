@@ -6,27 +6,27 @@ use App\Card\Card;
 
 /**
  * Class DeckOfCards
- * 
+ *
  * A class that holds and initializes a deck of cards
- * 
+ *
  * @package App\Card
  */
 
 class DeckOfCards
-{   
+{
     /**
      * @var array<Card>
      */
     private array $deck = [];
 
     /**
-     * Method that populates $deck[] with a full deck of Cards as graphical representation 
+     * Method that populates $deck with a full deck of Cards as graphical representation
      */
     public function setupDeck(): void
     {
-        /** @var array Array of all ranks in standard card deck */
+        /** @var string[] Array of all ranks in standard card deck */
         $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-        /** @var array Array of all suits in standard card deck */
+        /** @var string[] Array of all suits in standard card deck */
         $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
 
         foreach ($suits as $suit) {
@@ -38,7 +38,7 @@ class DeckOfCards
     }
 
     /**
-     * Method that populates $deck[] with a full deck of Cards as a textual representation 
+     * Method that populates $deck[] with a full deck of Cards as a textual representation
      */
     public function setupDeckText(): void
     {
@@ -55,7 +55,7 @@ class DeckOfCards
 
     /**
      * Set Values of Cards during population of deck, based on its rank
-     * 
+     *
      * @param string $rank Takes the rank of card as argument
      * @return int Returns value for given card
      */
@@ -83,10 +83,10 @@ class DeckOfCards
 
         return 0;
     }
-    
+
     /**
      * Draw specified amount of cards from the top of deck
-     * 
+     *
      * @param int $amount Number cards to draw
      * @return array<Card> Returns array of drawn cards
      */
@@ -112,7 +112,7 @@ class DeckOfCards
 
     /**
      * Counts the amount of cards currently in the deck
-     * 
+     *
      * @return int Returns amount of cards left in deck as integer
      */
     public function countCards(): int
@@ -122,7 +122,7 @@ class DeckOfCards
 
     /**
      * Get current deck of cards
-     * 
+     *
      * @return array<Card> Array of card objects in deck
      */
     public function getDeck(): array
@@ -132,7 +132,7 @@ class DeckOfCards
 
     /**
      * Retrieve string representations of cards in array
-     * 
+     *
      * @return array<string>
      */
     public function getString(): array

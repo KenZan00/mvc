@@ -4,14 +4,14 @@ namespace App\Card;
 
 /**
  * Class Card
- * 
+ *
  * A class that holds single play cards
- * 
+ *
  * @package App\Card
  */
 
 class Card
-{   
+{
     /** @var string Rank of card */
     protected string $rank;
 
@@ -23,7 +23,7 @@ class Card
 
     /**
      * Card constructor.
-     * 
+     *
      * @param string $rank Rank of cards example (A, 2, 3 - etc).
      * @param string $suit Suit of cards example ('Spades', 'Hearts').
      * @param int $value Value of cards as integer.
@@ -37,7 +37,7 @@ class Card
 
     /**
      * Method to get Suit of Card
-     * 
+     *
      * @return string Return suit of card
      */
     public function getSuit(): string
@@ -47,7 +47,7 @@ class Card
 
     /**
      * Method to get Rank of Card
-     * 
+     *
      * @return string Return rank of card
      */
     public function getRank(): string
@@ -57,7 +57,7 @@ class Card
 
     /**
      * Method to get Value of Card
-     * 
+     *
      * @return int Return Value of card
      */
     public function getValue(): int
@@ -67,7 +67,7 @@ class Card
 
     /**
      * Method to get string representation of a Card object
-     * 
+     *
      * @return string Return string representation of a Card object ex('10 Hearts')
      */
     public function getAsString(): string

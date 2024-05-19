@@ -13,10 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TheGame21Controller extends AbstractController
-{   
-
+{
     #[Route("/game", name: "game", methods: ['GET'])]
-    public function game21(): Response {
+    public function game21(): Response
+    {
 
 
         return $this->render('game21/home.html.twig');
@@ -72,7 +72,7 @@ class TheGame21Controller extends AbstractController
     ): Response {
         /** @var Game21 $game */
         $game = $session->get("game21_logic");
-        
+
         if($game !== null) {
             $playerHand = $game->getPlayerHand();
             $deck = $game->getDeck();
@@ -125,7 +125,7 @@ class TheGame21Controller extends AbstractController
         $playersHand = new CardHand();
         $banksHand = new CardHand();
 
-        
+
         $game = new game21($deck, $playersHand, $banksHand);
 
         $game->start21(); // Start game, iniate deck & shuffle, deal 1 player card.
@@ -137,7 +137,8 @@ class TheGame21Controller extends AbstractController
     }
 
     #[Route("/game/doc", name: "game_doc")]
-    public function gameDoc(): Response {
+    public function gameDoc(): Response
+    {
 
 
         return $this->render('game21/doc.html.twig');

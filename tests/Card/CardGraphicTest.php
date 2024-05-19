@@ -13,11 +13,11 @@ class CardGraphicTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
      */
-    public function testCreateGraphicCard()
-    {   
+    public function testCreateGraphicCard(): void
+    {
         $rank = 'Ace';
         $suit = '♦';
-        $value = '14';
+        $value = 14;
 
         $card = new CardGraphic($rank, $suit, $value);
 
@@ -30,17 +30,17 @@ class CardGraphicTest extends TestCase
 
     }
 
-    public function testGraphicCardAsString()
+    public function testGraphicCardAsString(): void
     {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new CardGraphic($rank, $suit, $value);
 
         $cardString = $card->getAsString();
         $teststring = 'Ace ♦';
-        
+
         $this->assertEquals($cardString, $teststring);
 
     }

@@ -3,7 +3,7 @@
 namespace App\Dice;
 
 class DiceGraphic extends Dice
-{   
+{
     private array $representation = [
         '⚀',
         '⚁',

@@ -118,7 +118,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AsetupDeck\u0028\u0029",
             "name": "setupDeck",
-            "summary": "Method\u0020that\u0020populates\u0020\u0024deck\u005B\u005D\u0020with\u0020a\u0020full\u0020deck\u0020of\u0020Cards\u0020as\u0020graphical\u0020representation",
+            "summary": "Method\u0020that\u0020populates\u0020\u0024deck\u0020with\u0020a\u0020full\u0020deck\u0020of\u0020Cards\u0020as\u0020graphical\u0020representation",
             "url": "classes/App-Card-DeckOfCards.html#method_setupDeck"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AsetupDeckText\u0028\u0029",

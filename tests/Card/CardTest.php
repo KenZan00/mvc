@@ -13,11 +13,11 @@ class CardTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
      */
-    public function testCreateCard()
-    {   
+    public function testCreateCard(): void
+    {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new Card($rank, $suit, $value);
 
@@ -30,11 +30,11 @@ class CardTest extends TestCase
 
     }
 
-    public function testGetSuit()
+    public function testGetSuit(): void
     {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new Card($rank, $suit, $value);
 
@@ -43,11 +43,11 @@ class CardTest extends TestCase
         $this->assertEquals($cardSuit, $suit);
     }
 
-    public function testGetRank()
+    public function testGetRank(): void
     {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new Card($rank, $suit, $value);
 
@@ -56,11 +56,11 @@ class CardTest extends TestCase
         $this->assertEquals($cardRank, $rank);
     }
 
-    public function testGetValue()
+    public function testGetValue(): void
     {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new Card($rank, $suit, $value);
 
@@ -70,17 +70,17 @@ class CardTest extends TestCase
     }
 
 
-    public function testGetAsString()
+    public function testGetAsString(): void
     {
         $rank = 'Ace';
         $suit = 'Diamonds';
-        $value = '14';
+        $value = 14;
 
         $card = new Card($rank, $suit, $value);
 
         $cardString = $card->getAsString();
         $teststring = 'Ace Diamonds';
-        
+
         $this->assertEquals($cardString, $teststring);
 
     }
