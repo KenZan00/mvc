@@ -4,10 +4,18 @@ namespace App\Card;
 
 use App\Card\Card;
 
+/**
+ * Class CardHand
+ * 
+ * A class that holds a hand of Cards
+ * 
+ * @package App\Card
+ */
+
 class CardHand
 {   
     /**
-     * @var array<Card>
+     * @var array<Card> Array containing Card
      */
     private array $hand = [];
 
@@ -17,7 +25,9 @@ class CardHand
     }
 
     /**
-     * @param array<Card> $cards
+     * Add array of cards to CardHand
+     * 
+     * @param array<Card> Cards
      * @return void
      */
     public function addCardsArray(array $cards): void
@@ -27,6 +37,11 @@ class CardHand
         }
     }
 
+    /**
+     * Retrieve total value from the CardHand
+     * 
+     * @return int Hand value as integer
+     */
     public function handValue(): int
     {
         $value = 0;
@@ -37,20 +52,29 @@ class CardHand
     }
 
     /**
-     * @return array<Card>
+     * Retrieve hand of cards
+     * 
+     * @return array<Card> Hand of cards
      */
     public function getHand(): array
     {
         return $this->hand;
     }
 
+    /**
+     * Retrieve the number of cards in hand
+     * 
+     * @return int Return number of cards in hand as integer
+     */
     public function getNumCards(): int
     {
         return count($this->hand);
     }
 
     /**
-     * @return array<string>
+     * Retrieve string representation of all the cards in hand
+     * 
+     * @return array<string> Returns string representation of the cards in hand as array
      */
     public function getString(): array
     {
@@ -61,6 +85,11 @@ class CardHand
         return $values;
     }
 
+    /**
+     *  Method that counts the number of aces in hand
+     * 
+     *  @return int Returns number of aces in hand as integer
+     */
     public function aces(): int
     {
         $aces = 0;
