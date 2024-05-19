@@ -11,11 +11,6 @@ class DeckOfCards
      */
     private array $deck = [];
 
-    public function __construct()
-    {
-
-    }
-
     public function setupDeck(): void
     {
         $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
