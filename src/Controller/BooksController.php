@@ -8,7 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-// use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -25,7 +25,6 @@ class BooksController extends AbstractController
 
     #[Route('/library/create', name: 'library_create', methods: ['GET'])]
     public function createBook(
-        ManagerRegistry $doctrine
     ): Response {
 
         return $this->render('books/new_book.html.twig');
@@ -139,8 +138,8 @@ class BooksController extends AbstractController
         return $this->redirectToRoute('library_show');
     }
 
-    #[Route('/library/showapi', name: 'library_show_all')]
-    public function showAllProductApi(
+    #[Route('/api/library/books', name: 'library_show_all')]
+    public function showAllBooks(
         BooksRepository $booksRepository
     ): Response {
         $products = $booksRepository
@@ -153,5 +152,50 @@ class BooksController extends AbstractController
             return $response;
 
         return $this->json($products);
+    }
+
+    #[Route("/api")]
+    public function api(): Response
+    {
+
+        $data = [
+            'api/library/books' => 'Shows all books',
+            'api/library/book/<isbn>' => 'Show book by ISBN'
+        ];
+
+        return $this->render('books/api.html.twig',['data' => $data]);
+    }
+
+    #[Route('/api/library/books', name: 'library_show_all_api')]
+    public function showAllProductApi(
+        BooksRepository $booksRepository
+    ): Response {
+        $books = $booksRepository
+            ->findAll();
+
+        $response = new JsonResponse($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route('/api/library/books/{isbn}', name: 'library_book_isbn')]
+    public function showBookIsbnApi(
+        BooksRepository $booksRepository,
+        string $isbn
+    ): Response {
+
+        $book = $booksRepository->findOneByIsbnField2($isbn);
+
+        if (!$book) {
+            return new JsonResponse([$isbn => 'Book not found in library']);
+        }
+
+        $response = new JsonResponse($book);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Library api</h1>
+    <ul>
+        {% for route, description in data %}
+            <li>{{ route }}: {{ description }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('library_book_isbn', {isbn: 9789144105567}) }}">ISBN example</a>
+    
+
+</div>
+{% endblock %}
