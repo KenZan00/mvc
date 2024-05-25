@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    {# <h1>Hello {{ controller_name }}! ✅</h1> #}
+
+    <p>Välkommen till biblioteket.</p>
+
+    <a href="{{ path('library_create')}}">Lägg till böcker</a>
+    <a href="{{ path('library_show')}}">Se bibliotek</a>
+    
+
+    <h1>{{ book.getTitle|e }}</h1>
+
+    <p>ISBN: {{ book.getIsbn|e }}</p>
+    <p>Author: {{ book.getAuthor|e }}</p>
+
+    <a href="{{ asset('img/' ~ book.getPicture|e) }}">
+        <img src="{{ asset('img/' ~ book.getPicture|e) }}" alt="Book cover of {{ book.getPicture|e }}">
+    </a>
+
+    {% endblock %}

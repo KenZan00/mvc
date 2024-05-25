@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    {# <h1>Hello {{ controller_name }}! ✅</h1> #}
+
+    <p>Välkommen till biblioteket.</p>
+
+    <a href="{{ path('library_create')}}">Lägg till böcker</a>
+    <a href="{{ path('library_show')}}">Se bibliotek</a>
+    
+    <h3>Böcker i biblioteket</h3>
+
+    <div class="library-books">    
+        <ul>
+            {% for book in books %}
+            <li>
+                <a href="{{ path('book_by_id', {'id':book.getId|e}) }}">
+                    {{ book.getTitle|e }} ({{ book.getIsbn|e }}) {{ book.getAuthor|e }}
+                </a>
+                <a href="../../assets/images/{{ book.getPicture|e }}">
+                    <img src="../../assets/images/{{ book.getPicture|e }}" alt="Web Development with PHP and MySQL" style="width: 100px; height: auto;">
+                </a>
+                {# <a href="{{ path('book_edit', {'id':book.getId|e}) }}"></a> #}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{# <a href="{{ path('test_dicehand', {num: 10}) }}">10</a> #}
