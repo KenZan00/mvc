@@ -65,7 +65,7 @@ class BooksController extends AbstractController
     ): Response {
         $books = $booksRepository
             ->findAll();
-        
+
         $data = [
             'books' => $books
         ];
@@ -83,7 +83,7 @@ class BooksController extends AbstractController
         return $this->render('books/show_one.html.twig', ['book' => $book]);
     }
 
-    #[Route('/library/edit/{id}', name: 'book_by_id_edit',  methods: ['POST'])]
+    #[Route('/library/edit/{id}', name: 'book_by_id_edit', methods: ['POST'])]
     public function editBookById(
         ManagerRegistry $doctrine,
         Request $request,
@@ -125,16 +125,16 @@ class BooksController extends AbstractController
     ): Response {
         $entityManager = $doctrine->getManager();
         $book = $entityManager->getRepository(Books::class)->find($id);
-    
+
         if (!$book) {
             throw $this->createNotFoundException(
                 'No product found for id '.$id
             );
         }
-    
+
         $entityManager->remove($book);
         $entityManager->flush();
-    
+
         return $this->redirectToRoute('library_show');
     }
 
@@ -145,11 +145,11 @@ class BooksController extends AbstractController
         $products = $booksRepository
             ->findAll();
 
-            $response = $this->json($products);
-            $response->setEncodingOptions(
-                $response->getEncodingOptions() | JSON_PRETTY_PRINT
-            );
-            return $response;
+        $response = $this->json($products);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
 
         return $this->json($products);
     }
@@ -163,7 +163,7 @@ class BooksController extends AbstractController
             'api/library/book/<isbn>' => 'Show book by ISBN'
         ];
 
-        return $this->render('books/api.html.twig',['data' => $data]);
+        return $this->render('books/api.html.twig', ['data' => $data]);
     }
 
     #[Route('/api/library/books', name: 'library_show_all_api')]
