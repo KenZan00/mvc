@@ -65,8 +65,6 @@ class Game21Test extends TestCase
         $deck = new DeckOfCards();
         $deck->setupDeck();
 
-        $cardHand = new CardHand();
-
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('10', 'Spades', 10);
         $card3 = new Card('10', 'Clubs', 10);

@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Card\Card;
-use App\Card\CardGraphic;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
 
@@ -18,10 +16,9 @@ class CardGameController extends AbstractController
 {
     #[Route("/session", name: "card_session", methods: ['GET'])]
     public function session(
-        Request $request,
         SessionInterface $session
     ): Response {
-        $deck = $session->get('card_deck');
+        $session->get('card_deck');
 
         $data = [
             'session' => $session->all()
@@ -32,7 +29,6 @@ class CardGameController extends AbstractController
 
     #[Route("/session/delete", name: "card_session_delete")]
     public function delete(
-        Request $request,
         SessionInterface $session
     ): Response {
         $session->clear();
@@ -47,7 +43,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card", name: "card_start")]
     public function home(
-        Request $request,
         SessionInterface $session
     ): Response {
         if (!$session->has('card_deck')) {
@@ -61,7 +56,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck", name: "card_deck")]
     public function cardDeck(
-        SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
         $deck->setupDeck();
@@ -96,7 +90,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck/draw", name: "card_draw", methods: ['GET'])]
     public function cardDraw(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = $session->get('card_deck');
@@ -128,7 +121,6 @@ class CardGameController extends AbstractController
     public function cardDrawNum(
         int $num,
         SessionInterface $session,
-        Request $request
     ): Response {
         {
             $deck = $session->get('card_deck');

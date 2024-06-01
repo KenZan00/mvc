@@ -52,8 +52,7 @@ class ProductController extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
         return $response;
-
-        return $this->json($products);
+        // return $this->json($products);
     }
 
     #[Route('/product/show/{id}', name: 'product_by_id')]

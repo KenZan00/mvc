@@ -41,7 +41,7 @@ class CardGameControllerJson
         $deck->setupDeckText();
         $session->set("card_deck", $deck);
 
-        $shuffledDeck = $deck->shuffle();
+        $deck->shuffle();
         $shuffledDeck = $deck->getString();
 
         $data = [

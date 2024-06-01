@@ -150,8 +150,7 @@ class BooksController extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
         return $response;
-
-        return $this->json($products);
+        // return $this->json($products);
     }
 
     #[Route("/api")]
