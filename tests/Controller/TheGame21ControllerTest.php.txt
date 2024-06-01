@@ -16,15 +16,6 @@ class TheGame21ControllerTest extends WebTestCase
 
     }
 
-    // public function testGame21Callback(): void
-    // {
-    //     $client = static::createClient();
-    //     $client->request('POST', '/game');
-
-    //     // $this->assertResponseStatusCodeSame(302);
-
-    // }
-
     public function testGame21Round(): void
     {
         $client = static::createClient();
@@ -49,7 +40,7 @@ class TheGame21ControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('POST', '/game/stop');
 
-        // $this->assertResponseStatusCodeSame(302);
+
         $this->assertResponseRedirects('/game/round');
 
     }
@@ -67,7 +58,6 @@ class TheGame21ControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/game/doc');
 
-        // $this->assertResponseStatusCodeSame(200);
         $this->assertResponseIsSuccessful();
     }
 
