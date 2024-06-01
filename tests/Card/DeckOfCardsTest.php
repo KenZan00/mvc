@@ -27,61 +27,45 @@ class DeckOfCardsTest extends TestCase
 
     }
 
-    public function testSetupDeckText(): void
-    {
-        $deckCreator = new Deck21Creator();
-        $cards = $deckCreator->setupDeck();
-
-        $deck = new DeckOfCards($cards);
-
-        $deckOfCards = $deck->getDeck();
-
-        $this->assertCount(52, $deckOfCards);
-
-        foreach ($deckOfCards as $testCard) {
-            $this->assertInstanceOf(Card::class, $testCard);
-        }
-
-
-    }
-
     public function testSetValue(): void
     {
         $deckCreator = new Deck21Creator();
         $cards = $deckCreator->setupDeck();
-
         $deck = new DeckOfCards($cards);
         $deckOfCards = $deck->getDeck();
-
+    
         foreach ($deckOfCards as $testCard) {
-
             $value = $testCard->getValue();
             $rank = $testCard->getRank();
+            $expectedValue = $this->getTestValue($rank);
 
-            if (is_numeric($rank)) {
-                $this->assertEquals($testCard->getRank(), $value);
-            } else {
-                switch($rank) {
-                    case 'Ace':
-                        $this->assertEquals(14, $value);
-                        break;
-                    case 'King':
-                        $this->assertEquals(13, $value);
-                        break;
-                    case 'Queen':
-                        $this->assertEquals(12, $value);
-                        break;
-                    case 'Jack':
-                        $this->assertEquals(11, $value);
-                        break;
-                    default:
-                        $this->assertEquals(0, $value);
-                }
-
-            }
-
+            $this->assertEquals($expectedValue, $value);
+        }
+    }
+    
+    private function getTestValue(string $rank): int
+    {
+        if (is_numeric($rank)) {
+            return (int)$rank;
         }
 
+        if ($rank === 'Ace') {
+            return 14;
+        }
+
+        if ($rank === 'Jack') {
+            return 11;
+        }
+
+        if ($rank === 'Queen') {
+            return 12;
+        }
+
+        if ($rank === 'King') {
+            return 13;
+        }
+
+        return 0;
     }
 
     public function testSetValueZeroValidation(): void

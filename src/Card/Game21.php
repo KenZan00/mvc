@@ -38,16 +38,19 @@ class Game21
         $this->bank = $bank;
     }
 
+    /** Get deck in play */
     public function getDeck(): DeckOfCards
     {
         return $this->deck;
     }
 
+    /** Get players hand */
     public function getPlayerHand(): CardHand
     {
         return $this->player;
     }
 
+    /** Get banks hand */
     public function getBankHand(): CardHand
     {
         return $this->bank;
@@ -55,8 +58,7 @@ class Game21
 
     /**
      * Start and initialize game21 by setting upp deck,
-     * shuffling and dealing first card to player.
-     *
+     * shuffling and dealing first card to player.     *
      */
     public function start21(): void
     {
@@ -67,6 +69,11 @@ class Game21
         $this->player->addCardsArray($playersCard);
     }
 
+    /**
+     * Draw cards for bank while handvalue is under 17 points
+     *
+     * @return int Return bankHandValue
+     */
     public function bankDraw(): int
     {
         $bankHandValue = $this->checkAceValue($this->bank);

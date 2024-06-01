@@ -178,27 +178,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003AgetDeck\u0028\u0029",
             "name": "getDeck",
-            "summary": "",
+            "summary": "Get\u0020deck\u0020in\u0020play",
             "url": "classes/App-Card-Game21.html#method_getDeck"
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003AgetPlayerHand\u0028\u0029",
             "name": "getPlayerHand",
-            "summary": "",
+            "summary": "Get\u0020players\u0020hand",
             "url": "classes/App-Card-Game21.html#method_getPlayerHand"
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003AgetBankHand\u0028\u0029",
             "name": "getBankHand",
-            "summary": "",
+            "summary": "Get\u0020banks\u0020hand",
             "url": "classes/App-Card-Game21.html#method_getBankHand"
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003Astart21\u0028\u0029",
             "name": "start21",
-            "summary": "Start\u0020and\u0020initialize\u0020game21\u0020by\u0020setting\u0020upp\u0020deck,\nshuffling\u0020and\u0020dealing\u0020first\u0020card\u0020to\u0020player.",
+            "summary": "Start\u0020and\u0020initialize\u0020game21\u0020by\u0020setting\u0020upp\u0020deck,\nshuffling\u0020and\u0020dealing\u0020first\u0020card\u0020to\u0020player.\u0020\u0020\u0020\u0020\u0020\u002A",
             "url": "classes/App-Card-Game21.html#method_start21"
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003AbankDraw\u0028\u0029",
             "name": "bankDraw",
-            "summary": "",
+            "summary": "Draw\u0020cards\u0020for\u0020bank\u0020while\u0020handvalue\u0020is\u0020under\u002017\u0020points",
             "url": "classes/App-Card-Game21.html#method_bankDraw"
         },                {
             "fqsen": "\\App\\Card\\Game21\u003A\u003AcheckAceValue\u0028\u0029",
