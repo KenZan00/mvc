@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
+use App\Card\Deck21Creator;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -17,8 +18,10 @@ class CardGameControllerJson
     #[Route("/api/deck")]
     public function deckApi(): Response
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeckText();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
 
         $allCards = $deck->getString();
 
@@ -37,8 +40,10 @@ class CardGameControllerJson
     public function shuffleApi(
         SessionInterface $session,
     ): Response {
-        $deck = new DeckOfCards();
-        $deck->setupDeckText();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
         $session->set("card_deck", $deck);
 
         $deck->shuffle();
@@ -83,7 +88,7 @@ class CardGameControllerJson
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
         );
         return $response;
     }
@@ -119,7 +124,7 @@ class CardGameControllerJson
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
         );
         return $response;
     }

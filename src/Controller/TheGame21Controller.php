@@ -117,8 +117,8 @@ class TheGame21Controller extends AbstractController
         $winner = null;
 
         if ($game !== null) {
-        $game->bankDraw();
-        $winner = $game->comparePoints();
+            $game->bankDraw();
+            $winner = $game->comparePoints();
         }
 
         if ($winner !== null) {

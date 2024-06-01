@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
+use App\Card\Deck21Creator;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,8 +46,10 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response {
         if (!$session->has('card_deck')) {
-            $deck = new DeckOfCards();
-            $deck->setupDeck();
+            $cards = new deck21Creator();
+            $deck = $cards->setupDeck();
+
+            $deck = new DeckOfCards($deck);
             $session->set("card_deck", $deck);
         }
 
@@ -57,8 +59,10 @@ class CardGameController extends AbstractController
     #[Route("/card/deck", name: "card_deck")]
     public function cardDeck(
     ): Response {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
 
         $allCards = $deck->getString();
 
@@ -73,8 +77,10 @@ class CardGameController extends AbstractController
     public function cardShuffle(
         SessionInterface $session
     ): Response {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
         $deck->shuffle();
 
         $session->set("card_deck", $deck);

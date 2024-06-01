@@ -16,24 +16,11 @@ class BooksRepository extends ServiceEntityRepository
         parent::__construct($registry, Books::class);
     }
 
-    // /**
-    // * @return Books Returns an object of Books
-    // */
-    // public function findOneByIsbnField(string $isbn): ?Books
-    // {
-    //     return $this->createQueryBuilder('b')
-    //         ->andWhere('b.isbn = :isbn')
-    //         ->setParameter('isbn', $isbn)
-    //         ->getQuery()
-    //         ->getOneOrNullResult()
-    //     ;
-    // }
-
     /**
      * Find all producs having a value above the specified one with SQL.
      *
      * @param string $isbn of the book to search for
-     * @return array<array> Returns an array of arrays (i.e. a raw data set)
+     * @return array[] Returns an array of arrays (i.e. a raw data set)
      */
     public function findOneByIsbnField2(string $isbn): array
     {
@@ -48,29 +35,4 @@ class BooksRepository extends ServiceEntityRepository
 
         return $resultSet->fetchAllAssociative();
     }
-
-    //    /**
-    //     * @return Books[] Returns an array of Books objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('b')
-    //            ->andWhere('b.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('b.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Books
-    //    {
-    //        return $this->createQueryBuilder('b')
-    //            ->andWhere('b.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

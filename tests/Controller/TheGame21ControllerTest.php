@@ -69,7 +69,7 @@ class TheGame21ControllerTest extends WebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertResponseIsSuccessful();
-    } 
+    }
 
 
 }

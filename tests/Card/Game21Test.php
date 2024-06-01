@@ -26,7 +26,7 @@ class Game21Test extends TestCase
     }
 
     public function testStart21(): void
-    { 
+    {
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubHand = $this->createMock(CardHand::class);
 
@@ -47,7 +47,7 @@ class Game21Test extends TestCase
     {
         $deckCreator = new Deck21Creator();
         $cards = $deckCreator->setupDeck();
-        
+
         $deck = new DeckOfCards($cards);
 
         $playerHand = new CardHand();
@@ -65,7 +65,7 @@ class Game21Test extends TestCase
     {
         $deckCreator = new Deck21Creator();
         $cards = $deckCreator->setupDeck();
-        
+
         $deck = new DeckOfCards($cards);
 
         $card = new Card('Ace', 'Diamonds', 14);
