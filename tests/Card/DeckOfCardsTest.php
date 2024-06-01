@@ -10,9 +10,12 @@ use PHPUnit\Framework\TestCase;
 class DeckOfCardsTest extends TestCase
 {
     public function testSetupDeck(): void
-    {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+    {   
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+
+        $deck = new DeckOfCards($cards);
+
         $deckOfCards = $deck->getDeck();
 
         $this->assertCount(52, $deckOfCards);
@@ -25,9 +28,12 @@ class DeckOfCardsTest extends TestCase
     }
 
     public function testSetupDeckText(): void
-    {
-        $deck = new DeckOfCards();
-        $deck->setupDeckText();
+    {   
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+
+        $deck = new DeckOfCards($cards);
+
         $deckOfCards = $deck->getDeck();
 
         $this->assertCount(52, $deckOfCards);
@@ -41,8 +47,10 @@ class DeckOfCardsTest extends TestCase
 
     public function testSetValue(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
         $deckOfCards = $deck->getDeck();
 
         foreach ($deckOfCards as $testCard) {
@@ -79,16 +87,22 @@ class DeckOfCardsTest extends TestCase
     public function testSetValueZeroValidation(): void
     {
         $rank = 'Joker';
-        $deck = new DeckOfCards();
 
-        $cardValue = $deck->setValue($rank);
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        new DeckOfCards($cards);
+
+        $cardValue = $deckCreator->setValue($rank);
         $this->assertEquals(0, $cardValue);
     }
 
     public function testDrawCard(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $cards = $deck->draw(3);
         $leftInDeck = $deck->getDeck();
@@ -103,8 +117,10 @@ class DeckOfCardsTest extends TestCase
 
     public function testShuffleMethod(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $UnshuffledDeck = $deck->getDeck();
         $deck->shuffle();
@@ -115,8 +131,10 @@ class DeckOfCardsTest extends TestCase
 
     public function testCountCardsInDeck(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $count = $deck->countCards();
 
@@ -125,8 +143,10 @@ class DeckOfCardsTest extends TestCase
 
     public function testGetString(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $cardsInString = $deck->getString();
 

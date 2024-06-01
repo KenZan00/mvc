@@ -26,12 +26,10 @@ class Game21Test extends TestCase
     }
 
     public function testStart21(): void
-    {
+    { 
         $stubDeck = $this->createMock(DeckOfCards::class);
         $stubHand = $this->createMock(CardHand::class);
 
-        $stubDeck->expects($this->once())
-        ->method('setupDeck');
         $stubDeck->expects($this->once())
         ->method('shuffle');
         $stubDeck->expects($this->once())
@@ -42,12 +40,15 @@ class Game21Test extends TestCase
 
         $game21 = new Game21($stubDeck, $stubHand, $stubHand);
         $game21->start21();
+
     }
 
     public function testBankDraw(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $playerHand = new CardHand();
         $bankHand = new CardHand();
@@ -62,8 +63,10 @@ class Game21Test extends TestCase
 
     public function testCheckAceValue(): void
     {
-        $deck = new DeckOfCards();
-        $deck->setupDeck();
+        $deckCreator = new Deck21Creator();
+        $cards = $deckCreator->setupDeck();
+        
+        $deck = new DeckOfCards($cards);
 
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('10', 'Spades', 10);

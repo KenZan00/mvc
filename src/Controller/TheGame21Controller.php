@@ -53,6 +53,13 @@ class TheGame21Controller extends AbstractController
         /** @var Game21 $game */
         $game = $session->get("game21_logic");
 
+        $data = [
+            "playerHand" => '',
+            "playerValue" => '',
+            "bankHand" => '',
+            "bankValue" => ''
+        ];
+
         if($game !== null) {
             $playerHand = $game->getPlayerHand();
             $bankHand = $game->getBankHand();
@@ -107,11 +114,14 @@ class TheGame21Controller extends AbstractController
         /** @var Game21 $game */
 
         $game = $session->get("game21_logic");
+        $winner = null;
 
+        if ($game !== null) {
         $game->bankDraw();
         $winner = $game->comparePoints();
+        }
 
-        if ($winner) {
+        if ($winner !== null) {
             $this->addFlash(
                 'notice',
                 $winner
