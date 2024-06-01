@@ -43,7 +43,6 @@ class DiceGameController extends AbstractController
 
         $diceRoll = [];
         for ($i = 1; $i <= $num; $i++) {
-            // $die = new Dice();
             $die = new DiceGraphic();
             $die->roll();
             $diceRoll[] = $die->getAsString();

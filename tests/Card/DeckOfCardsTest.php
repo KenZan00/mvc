@@ -33,7 +33,7 @@ class DeckOfCardsTest extends TestCase
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
         $deckOfCards = $deck->getDeck();
-    
+
         foreach ($deckOfCards as $testCard) {
             $value = $testCard->getValue();
             $rank = $testCard->getRank();
@@ -42,7 +42,7 @@ class DeckOfCardsTest extends TestCase
             $this->assertEquals($expectedValue, $value);
         }
     }
-    
+
     private function getTestValue(string $rank): int
     {
         if (is_numeric($rank)) {

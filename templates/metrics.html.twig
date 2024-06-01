@@ -88,8 +88,41 @@
     <li>Fixa issues i scrutinizer - Oanvänd kod, fel format i dokumentation och oanvänd kod</li>
     <li>Refactoring deckOfCards - Frikoppla "tillverkningen" av kortleken och istället injecta den i deckOfCards och därmed ge deckOfCards en 'single responsibility' och kanske lösa stabla abstractions principle om jag har förstått den rätt.</li>
     <li>Kodtäckning - Öka kodtäckningen - Försöka mig på att testa i controller och öka kodtäckningen något för att se hur det påverkar koden.</li>
+    <li>Kvalitetsindex - Öka kvalitetsindex till 10 i scrutinizer</li>
+    <li>Höja förhållandet mellan maintainability och komplexitet - "Få fler gröna och gula pluppar i Metrics".</li>
 </ul>
 
 <p>Jag tror att issues kommer att förbättre koden på det sätt att den följer kodstandarden bättre och kanske ger mig ett högra totalbetyg när tillräckligt många är fixade. Refactoring av deckOfCards hoppas jag skall minska klassens cyklomatiska komplexitet, öka maintainability, minska antalet antalet teoretiska buggar och kanske ta bort varningen för stable abstractions principle. Att öka kodtäckningen kommer troligt resultera i färre teoretiska buggar i de klasser/kontrollers där detta görs.</p>
+
+<h3>Php metrics</h3>
+<p>Före:
+    <a href="{{ asset('img/PhpMetricsMC1.png') }}">
+        <img src="{{ asset('img/PhpMetricsMC1.png') }}" alt="" style="width: 300px; height: auto;">
+    </a>
+    Efter:
+    <a href="{{ asset('img/PhpMetricsMC2.png') }}">
+        <img src="{{ asset('img/PhpMetricsMC2.png') }}" alt="" style="width: 300px; height: auto;">
+    </a>
+</p>
+<p>Som en väldigt enkel representation från Phpmetrics. Där är färre röda, fler gröna och gula.</p>
+
+<p>Förbättringar som införts genererar i att följande är förbättrat</p>
+<ul>
+    <li>Average cyclomatic complexity minskat från 3.17 till 2.96.</li>
+    <li>Average bugs gick från 0.13 till 0.12</li>
+    <li>Relative system complexity- deckOfCards sjönk från 7.42 till 3.17. Game21 från 65.1 till 50.31</li>
+    <li>Class cyclomatic complexity - deckOfCards från 13 till 4</li>
+</ul>
+<p>Fokuset som gett resultat här har jag tolkat som att koden har blivit bättre genom minskad komplexitet och maintainability som ökat genom att dela upp en av klasserna och förbättrat kommentarer.</p>
+
+<h3>Scrutinizer</h3>
+<p>Min kod hade 9.97 i score innan förbättring och 10.0 efter. Koden gick från 17 issues till 1. Alla buggar och oanvänd kod borttagna. Kontroller införda för variabler som inte är satta i sina vyer.</p>
+<p>Det negativa med uppdateringen är följande. Fler klasser/kopplingar. Lyckades inte förbättra kodtäckningen då testerna på controller gjorde att build inte gick igenom, detta fick då tas bort tills jag rett ut vad som gick snett.</p>
+
+<h3>Diskussion</h3>
+<p>Jag tänker mig att detta är något man skall implementera tidigt i sitt projekt och jobba aktivt med under projektets gång. Standarden är framtagen av anledningar som högst troligt leder till generellt bättre och enklare kod. Jag märke att det blev ganske mycket ändringar på min lilla kod när jag ändrare i kortklasserna.</p>
+<p>Klara fördelar med arbetssättet är att fler skriver kod som är enklare att läsa, midnre komplicerad och lättare att underhålla. Klara nackdelar är tidsaspekten som i företagsvärlden snabbt blir en monetär fråga. Personligen känner jag att detta är något jag gärna kommer att lägga tid på i något eget projekt, fantastisk lärdom.</p>
+<p>Jag använde detta kmom till att rätta och förstå ett tidigare kmom bättre, det kommer att visa sig menm jag tror det blev en bra förbättring. Det var scrutinizer som upplyste mig om en svaghet i min kod och fick mig att tänka till några gånger extra för att sedan skriva om den och testa variablerna bättre i min router.</p>
+
 
 {% endblock %}
