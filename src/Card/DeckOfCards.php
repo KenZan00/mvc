@@ -12,77 +12,92 @@ use App\Card\Card;
  * @package App\Card
  */
 
-class DeckOfCards
+ class DeckOfCards
 {
-    /**
-     * @var array<Card>
-     */
-    private array $deck = [];
+    /** @var Card[] */
+    private array $deck;
 
     /**
-     * Method that populates $deck with a full deck of Cards as graphical representation
-     */
-    public function setupDeck(): void
-    {
-        /** @var string[] Array of all ranks in standard card deck */
-        $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-        /** @var string[] Array of all suits in standard card deck */
-        $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
-
-        foreach ($suits as $suit) {
-            foreach ($ranks as $rank) {
-                $value = $this->setValue($rank);
-                $this->deck[] = new CardGraphic($rank, $suit, $value);
-            }
-        }
-    }
-
-    /**
-     * Method that populates $deck[] with a full deck of Cards as a textual representation
-     */
-    public function setupDeckText(): void
-    {
-        $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-        $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
-
-        foreach ($suits as $suit) {
-            foreach ($ranks as $rank) {
-                $value = $this->setValue($rank);
-                $this->deck[] = new Card($rank, $suit, $value);
-            }
-        }
-    }
-
-    /**
-     * Set Values of Cards during population of deck, based on its rank
+     * deckOfCards constructor.
      *
-     * @param string $rank Takes the rank of card as argument
-     * @return int Returns value for given card
+     * @param Card[] $cards Cards as array dependancy injected
      */
-    public function setValue(string $rank): int
+    public function __construct(array $cards)
     {
-        if (is_numeric($rank)) {
-            return (int)$rank;
-        }
-
-        if ($rank === 'Ace') {
-            return 14;
-        }
-
-        if ($rank === 'Jack') {
-            return 11;
-        }
-
-        if ($rank === 'Queen') {
-            return 12;
-        }
-
-        if ($rank === 'King') {
-            return 13;
-        }
-
-        return 0;
+        $this->deck = $cards;
     }
+
+// class DeckOfCards
+// {
+//     /**
+//      * @var array<Card>
+//      */
+//     private array $deck = [];
+
+//     /**
+//      * Method that populates $deck with a full deck of Cards as graphical representation
+//      */
+//     public function setupDeck(): void
+//     {
+//         /** @var string[] Array of all ranks in standard card deck */
+//         $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+//         /** @var string[] Array of all suits in standard card deck */
+//         $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+
+//         foreach ($suits as $suit) {
+//             foreach ($ranks as $rank) {
+//                 $value = $this->setValue($rank);
+//                 $this->deck[] = new CardGraphic($rank, $suit, $value);
+//             }
+//         }
+//     }
+
+//     /**
+//      * Method that populates $deck[] with a full deck of Cards as a textual representation
+//      */
+//     public function setupDeckText(): void
+//     {
+//         $ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+//         $suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+
+//         foreach ($suits as $suit) {
+//             foreach ($ranks as $rank) {
+//                 $value = $this->setValue($rank);
+//                 $this->deck[] = new Card($rank, $suit, $value);
+//             }
+//         }
+//     }
+
+    // /**
+    //  * Set Values of Cards during population of deck, based on its rank
+    //  *
+    //  * @param string $rank Takes the rank of card as argument
+    //  * @return int Returns value for given card
+    //  */
+    // public function setValue(string $rank): int
+    // {
+    //     if (is_numeric($rank)) {
+    //         return (int)$rank;
+    //     }
+
+    //     if ($rank === 'Ace') {
+    //         return 14;
+    //     }
+
+    //     if ($rank === 'Jack') {
+    //         return 11;
+    //     }
+
+    //     if ($rank === 'Queen') {
+    //         return 12;
+    //     }
+
+    //     if ($rank === 'King') {
+    //         return 13;
+    //     }
+
+    //     return 0;
+    // }
 
     /**
      * Draw specified amount of cards from the top of deck

@@ -60,7 +60,6 @@ class Game21
      */
     public function start21(): void
     {
-        $this->deck->setupDeck();
         $this->deck->shuffle();
 
         $playersCard = $this->deck->draw(1);

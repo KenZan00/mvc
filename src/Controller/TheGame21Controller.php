@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
+use App\Card\Deck21Creator;
 use App\Card\Game21;
+
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -27,7 +29,10 @@ class TheGame21Controller extends AbstractController
         SessionInterface $session
     ): Response {
 
-        $deck = new DeckOfCards();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
         $playersHand = new CardHand();
         $banksHand = new CardHand();
 
@@ -121,7 +126,10 @@ class TheGame21Controller extends AbstractController
     {
         $session->remove("game21_logic");
 
-        $deck = new DeckOfCards();
+        $cards = new deck21Creator();
+        $deck = $cards->setupDeck();
+
+        $deck = new DeckOfCards($deck);
         $playersHand = new CardHand();
         $banksHand = new CardHand();
 
