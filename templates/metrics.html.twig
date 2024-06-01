@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<h1>Introduktion</h1>
+<h3>De 6C om kodkvalitet & hur det påverkar din kod</h3> 
+
+<h4>Codestyle</h4>
+<p>Kodstil handlar om hur koden är formatterad. Detta innefattar till exempel indentering, namngivning, mellanrum, användning av semicolon. Alltså att man fäljer kodens standard. Kodstilen är viktig eftersom koden då blir mer läsbar och med det lättare att underhålla både för en själv och andra man samarbetar med.</p>
+
+<h4>Coverage</h4>
+<p>Coverage relaterar direkt till samma uttryck på svenska, kodtäckning. Det är hur stor del av koden som täcks av enhetstester. Att ha en vältestat kod sägs ge bättre kodkvalitet och mindre buggar.</p>
+
+<h4>Complexity</h4>
+<p>Komplexiteten är direkt kopplat till kodens "djup" och  komplexitet.  Hur många vägar koden har genom till exempel if-satser och beslut.  . Hur komplex den är avgör hur svår den blir att förstå och underhålla, detta i sin tur är en fråga om hur lång tid det tar att göra ändringar och tid är också en fråga om kostnader.</p>
+
+<h4>Cohesion</h4>
+<p>Cohesion mäter hur sammanhängande koden är i sina klasser. Är cohesion hög så innebär det att koden har ett tydligt fokus på att lösa ett enskilt problem och således är sammanhängande. Detta är viktigt för att det skall vara tydligt och "enkelt" att underhålla koden. När uppgifterna blir tydligare i koden blir den också mer testbar och återanvändbar.</p>
+
+<h4>Coupling</h4>
+<p>Coupling är ett beroende. Det är bättre med ett lägre beroende av annan kod eftersom koden blir lättare att ändra i om man påverkar mindre annan kod. Är kopplingen låg går det också lättare att återanvända, koden blir då mer flexibel.</p>
+
+<h4>CRAP</h4>
+<p>CRAP är en poängsättning av koden. Den ger ett riktvärde på hur hög risk koden har. Crap betyder "change risk anti-patterns" och mäter risken på att ändra i koden. Hög CRAP = högre risk. >Mätvariablerna i CRAP är cyklomatisk komplexitet och test coverage. Har man en hög andel testad kod och låg cyklomatisk komplexitet så bör koden vara lättare att ändra i.</p>
+
+<h1>Phpmetrics</h1>
+<p>Min förhoppning var att där skulle vara en del roliga fel att sätta tänderna i, men min kod testar 9.97 i scrutinizer och har överlag "låga" värden i phpmetrics. Självklart kan den bli mycket bättre, men det gjorde utgången i denna övningen mycket svårare.</p>
+<h4>Svagheter i koden</h4>
+<h4>1.</h4>
+
+<p>Det första jag valt att fokusera på är klassen DeckOfCards. Den blir gul, troligt då den cyclomatiska komplexitetet är på/över gränsen för lite högt och maintainability på 78. Jag lutar dock att se över komplexiteten som prioritering, men hur lätt den är att underhålla kommer troligt att följa med när jag eventellt frikopplar instansieringen av kort-objekt i denna klass.</p>
+<a href="{{ asset('img/metrics4.jpg') }}">
+    <img src="{{ asset('img/metrics4.jpg') }}" alt="" style="width: 300px; height: auto;">
+</a>
+
+<h4>2.</h4>
+<p>Andra svagheten är att App\Card inte följer stable abstractions principle. Paketet är instabilt och abstract.</p>
+<a href="{{ asset('img/metrics2.jpg') }}">
+    <img src="{{ asset('img/metrics2.jpg') }}" alt="" style="width: 800px; height: auto;">
+</a>
+
+<h4>3.</h4>
+<p>Tredje svagheten är game21Controller, kontrollern är helt otestad.</p>
+<a href="{{ asset('img/metrics1.jpg') }}">
+    <img src="{{ asset('img/metrics1.jpg') }}" alt="" style="width: 300px; height: auto;">
+</a>
+
+<h1>Scrutinizer</h1>
+<p></p>
+<a href="{{ asset('img/scrutinizer1.jpg') }}">
+    <img src="{{ asset('img/scrutinizer1.jpg') }}" alt="" style="width: 300px; height: auto;">
+</a>
+<p>Variable $data does not seem to be defined for all execution paths leading up to this point</p>
+
+<a href="{{ asset('img/scrutinizer2.jpg') }}">
+    <img src="{{ asset('img/scrutinizer2.jpg') }}" alt="" style="width: 300px; height: auto;">
+</a>
+
+<a href="{{ asset('img/scrutinizer3.jpg') }}">
+    <img src="{{ asset('img/scrutinizer3.jpg') }}" alt="" style="width: 300px; height: auto;">
+</a>
+
+<a href="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/build.png?b=main">
+    <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/build.png?b=main" alt="Scrutinizer Build">
+</a>
+<p></p>
+
+<a href="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/coverage.png?b=main">
+    <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/coverage.png?b=main" alt="Scrutinizer Coverage">
+</a>
+
+<a href="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/quality-score.png?b=main">
+    <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/quality-score.png?b=main" alt="Scrutinizer Score">
+</a>
+
+
+
+{% endblock %}
