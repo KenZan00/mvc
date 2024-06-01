@@ -48,24 +48,25 @@
 </a>
 
 <h1>Scrutinizer</h1>
-<p></p>
+
 <a href="{{ asset('img/scrutinizer1.jpg') }}">
     <img src="{{ asset('img/scrutinizer1.jpg') }}" alt="" style="width: 300px; height: auto;">
 </a>
-<p>Variable $data does not seem to be defined for all execution paths leading up to this point</p>
+<p>'Variable $data does not seem to be defined for all execution paths leading up to this point.' Skapar sidfel om man går direkt till routen.</p>
 
 <a href="{{ asset('img/scrutinizer2.jpg') }}">
     <img src="{{ asset('img/scrutinizer2.jpg') }}" alt="" style="width: 300px; height: auto;">
 </a>
+<p>'The assignment to $cardHand is dead and can be removed'. Objektet skapas men används egentligen inte i testets kod</p>
 
 <a href="{{ asset('img/scrutinizer3.jpg') }}">
     <img src="{{ asset('img/scrutinizer3.jpg') }}" alt="" style="width: 300px; height: auto;">
 </a>
+<p>Ganska mycket oanvänd kod och imports.</p>
 
 <a href="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/build.png?b=main">
     <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/build.png?b=main" alt="Scrutinizer Build">
 </a>
-<p></p>
 
 <a href="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/coverage.png?b=main">
     <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/coverage.png?b=main" alt="Scrutinizer Coverage">
@@ -75,6 +76,20 @@
     <img src="https://scrutinizer-ci.com/g/KenZan00/mvc/badges/quality-score.png?b=main" alt="Scrutinizer Score">
 </a>
 
+<h3>Analys</h3>
 
+<p>Kodstilen justeras efterhand med hjälp av csfix, och jag upplever därför att den är hyfsat bra. Tittar man sedan på poängen i coverage så är den låg i mitt projekt, detta är delvis för att fokuset har legat på att testa egenskrivna klasser i kmomen. Där jag valde att aktivt lämna uppgiften ser man tydligt att dice / card & controllers är det som är otestat och sänker då snittet. Komplexiteten är överlag låg på min kod, snittet ligger på 3.17 sorterat per klass och maxtalet är 13 i deckOfCards.</p>
+<p>Sammanhållningen (Cohesion) i koden är relativt bra, det finns inga varningen på det i mätningar vilket jag läst i scrutinizers dokumentation, att den mätningen finns med. Om jag skall göra en egen observation, så är cohesion lite lägre i deckOfCards då den har ett '&'. den både skapar kortleken med hjälp av hårda variabler och sedan sköter kortlekens uppgifter. Vi kommer då in på 'coupling' som är direkt relaterast till detta, de andra klasserna förlitar sig dependancy injection medan deckOfCards instansierar kort-objekt i sin ena metod.</p>
+<p>Crap-score påverkas direkt av komplexitet och testernas täckning. CRAP-score är som högst i mina controllers där det finns mycket kod och lägst andel testad kod. Det är också mina controllers och otestad kod som "troligt" har buggar. DiceGameController har 0.47, cards motsvarighet 0.34 och game21 0.28. "Vinsten" i klasserna tar deckOfcards med 0.24 som både har delat ansvar gällande kortlek, den högsta cyclomatiska complexiteten med 6 på metod och 13 på hela klassen. Om än inga höga värden så sticker den ut mot de andra som har nästan samtliga värden lägre gälladne komplexitet.</p>
+
+<h1>Förbättringar</h1>
+
+<ul>
+    <li>Fixa issues i scrutinizer - Oanvänd kod, fel format i dokumentation och oanvänd kod</li>
+    <li>Refactoring deckOfCards - Frikoppla "tillverkningen" av kortleken och istället injecta den i deckOfCards och därmed ge deckOfCards en 'single responsibility' och kanske lösa stabla abstractions principle om jag har förstått den rätt.</li>
+    <li>Kodtäckning - Öka kodtäckningen - Försöka mig på att testa i controller och öka kodtäckningen något för att se hur det påverkar koden.</li>
+</ul>
+
+<p>Jag tror att issues kommer att förbättre koden på det sätt att den följer kodstandarden bättre och kanske ger mig ett högra totalbetyg när tillräckligt många är fixade. Refactoring av deckOfCards hoppas jag skall minska klassens cyklomatiska komplexitet, öka maintainability, minska antalet antalet teoretiska buggar och kanske ta bort varningen för stable abstractions principle. Att öka kodtäckningen kommer troligt resultera i färre teoretiska buggar i de klasser/kontrollers där detta görs.</p>
 
 {% endblock %}
