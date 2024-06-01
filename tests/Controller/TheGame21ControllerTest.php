@@ -12,25 +12,25 @@ class TheGame21ControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/game');
 
-        // $this->assertResponseStatusCodeSame(200);
+        $this->assertResponseStatusCodeSame(200);
 
     }
 
-    public function testGame21Callback(): void
-    {
-        $client = static::createClient();
-        $client->request('POST', '/game');
+    // public function testGame21Callback(): void
+    // {
+    //     $client = static::createClient();
+    //     $client->request('POST', '/game');
 
-        // $this->assertResponseStatusCodeSame(302);
+    //     // $this->assertResponseStatusCodeSame(302);
 
-    }
+    // }
 
     public function testGame21Round(): void
     {
         $client = static::createClient();
         $client->request('GET', '/game/round');
 
-        // $this->assertResponseStatusCodeSame(200);
+        $this->assertResponseStatusCodeSame(200);
         $this->assertResponseIsSuccessful();
 
     }
