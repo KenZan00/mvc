@@ -7,7 +7,7 @@ use App\Card\Card;
 /**
  * Class DeckOfCards
  *
- * A class that holds and initializes a deck of cards
+ * A class that holds a deck of cards injected from a "deck creator class"
  *
  * @package App\Card
  */

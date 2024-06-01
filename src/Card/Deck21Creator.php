@@ -4,6 +4,14 @@ namespace App\Card;
 
 use App\Card\Card;
 
+/**
+ * Class Deck21Creator
+ *
+ * A class that initializes standard deck of cards for Game21
+ *
+ * @package App\Card
+ */
+
 class Deck21Creator
 {
     /**
