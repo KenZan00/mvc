@@ -1,4 +1,4 @@
-<?php
+{# 
 
 declare(strict_types=1);
 
@@ -13,4 +13,4 @@ $finder = PhpCsFixer\Finder::create();
 $config = new PhpCsFixer\Config();
 $config->setFinder($finder);
 
-return $config;
+return $config; #}

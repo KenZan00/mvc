@@ -187,7 +187,7 @@ class BooksController extends AbstractController
 
         $book = $booksRepository->findOneByIsbnField2($isbn);
 
-        if (!$book) {
+        if (empty($book)) {
             return new JsonResponse([$isbn => 'Book not found in library']);
         }
 
