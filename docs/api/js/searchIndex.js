@@ -111,25 +111,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardHand.html#property_hand"
         },                {
+            "fqsen": "\\App\\Card\\Deck21Creator",
+            "name": "Deck21Creator",
+            "summary": "Class\u0020Deck21Creator",
+            "url": "classes/App-Card-Deck21Creator.html"
+        },                {
+            "fqsen": "\\App\\Card\\Deck21Creator\u003A\u003AsetupDeck\u0028\u0029",
+            "name": "setupDeck",
+            "summary": "Method\u0020that\u0020populates\u0020a\u0020full\u0020deck\u0020of\u0020Cards\u0020as\u0020graphical\u0020representation.",
+            "url": "classes/App-Card-Deck21Creator.html#method_setupDeck"
+        },                {
+            "fqsen": "\\App\\Card\\Deck21Creator\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "Set\u0020Values\u0020of\u0020Cards\u0020during\u0020population\u0020of\u0020deck,\u0020based\u0020on\u0020its\u0020rank",
+            "url": "classes/App-Card-Deck21Creator.html#method_setValue"
+        },                {
             "fqsen": "\\App\\Card\\DeckOfCards",
             "name": "DeckOfCards",
             "summary": "Class\u0020DeckOfCards",
             "url": "classes/App-Card-DeckOfCards.html"
         },                {
-            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AsetupDeck\u0028\u0029",
-            "name": "setupDeck",
-            "summary": "Method\u0020that\u0020populates\u0020\u0024deck\u0020with\u0020a\u0020full\u0020deck\u0020of\u0020Cards\u0020as\u0020graphical\u0020representation",
-            "url": "classes/App-Card-DeckOfCards.html#method_setupDeck"
-        },                {
-            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AsetupDeckText\u0028\u0029",
-            "name": "setupDeckText",
-            "summary": "Method\u0020that\u0020populates\u0020\u0024deck\u005B\u005D\u0020with\u0020a\u0020full\u0020deck\u0020of\u0020Cards\u0020as\u0020a\u0020textual\u0020representation",
-            "url": "classes/App-Card-DeckOfCards.html#method_setupDeckText"
-        },                {
-            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AsetValue\u0028\u0029",
-            "name": "setValue",
-            "summary": "Set\u0020Values\u0020of\u0020Cards\u0020during\u0020population\u0020of\u0020deck,\u0020based\u0020on\u0020its\u0020rank",
-            "url": "classes/App-Card-DeckOfCards.html#method_setValue"
+            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "deckOfCards\u0020constructor.",
+            "url": "classes/App-Card-DeckOfCards.html#method___construct"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
