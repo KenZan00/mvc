@@ -8,10 +8,10 @@
 <h3>De 6C om kodkvalitet & hur det påverkar din kod</h3> 
 
 <h4>Codestyle</h4>
-<p>Kodstil handlar om hur koden är formatterad. Detta innefattar till exempel indentering, namngivning, mellanrum, användning av semicolon. Alltså att man fäljer kodens standard. Kodstilen är viktig eftersom koden då blir mer läsbar och med det lättare att underhålla både för en själv och andra man samarbetar med.</p>
+<p>Kodstil handlar om hur koden är formatterad. Detta innefattar till exempel indentering, namngivning, mellanrum, användning av semikolon. Alltså att man fäljer kodens standard. Kodstilen är viktig eftersom koden då blir mer läsbar och med det lättare att underhålla, både för en själv och andra man samarbetar med.</p>
 
 <h4>Coverage</h4>
-<p>Coverage relaterar direkt till samma uttryck på svenska, kodtäckning. Det är hur stor del av koden som täcks av enhetstester. Att ha en vältestat kod sägs ge bättre kodkvalitet och mindre buggar.</p>
+<p>Coverage relaterar direkt till samma uttryck på svenska, kodtäckning. Det är hur stor del av koden som täcks av enhetstester. Att ha en vältestad kod sägs ge bättre kodkvalitet och mindre buggar.</p>
 
 <h4>Complexity</h4>
 <p>Komplexiteten är direkt kopplat till kodens "djup" och  komplexitet.  Hur många vägar koden har genom till exempel if-satser och beslut.  . Hur komplex den är avgör hur svår den blir att förstå och underhålla, detta i sin tur är en fråga om hur lång tid det tar att göra ändringar och tid är också en fråga om kostnader.</p>
@@ -80,7 +80,7 @@
 
 <p>Kodstilen justeras efterhand med hjälp av csfix, och jag upplever därför att den är hyfsat bra. Tittar man sedan på poängen i coverage så är den låg i mitt projekt, detta är delvis för att fokuset har legat på att testa egenskrivna klasser i kmomen. Där jag valde att aktivt lämna uppgiften ser man tydligt att dice / card & controllers är det som är otestat och sänker då snittet. Komplexiteten är överlag låg på min kod, snittet ligger på 3.17 sorterat per klass och maxtalet är 13 i deckOfCards.</p>
 <p>Sammanhållningen (Cohesion) i koden är relativt bra, det finns inga varningen på det i mätningar vilket jag läst i scrutinizers dokumentation, att den mätningen finns med. Om jag skall göra en egen observation, så är cohesion lite lägre i deckOfCards då den har ett '&'. den både skapar kortleken med hjälp av hårda variabler och sedan sköter kortlekens uppgifter. Vi kommer då in på 'coupling' som är direkt relaterast till detta, de andra klasserna förlitar sig dependancy injection medan deckOfCards instansierar kort-objekt i sin ena metod.</p>
-<p>Crap-score påverkas direkt av komplexitet och testernas täckning. CRAP-score är som högst i mina controllers där det finns mycket kod och lägst andel testad kod. Det är också mina controllers och otestad kod som "troligt" har buggar. DiceGameController har 0.47, cards motsvarighet 0.34 och game21 0.28. "Vinsten" i klasserna tar deckOfcards med 0.24 som både har delat ansvar gällande kortlek, den högsta cyclomatiska complexiteten med 6 på metod och 13 på hela klassen. Om än inga höga värden så sticker den ut mot de andra som har nästan samtliga värden lägre gälladne komplexitet.</p>
+<p>Crap-score påverkas direkt av komplexitet och testernas täckning. CRAP-score är som högst i mina controllers där det finns mycket kod och lägst andel testad kod. Det är också mina controllers och otestad kod som "troligt" har buggar. DiceGameController har 0.47, cards motsvarighet 0.34 och game21 0.28. "Vinsten" i klasserna tar deckOfcards med 0.24 som både har delat ansvar gällande kortlek, den högsta cyclomatiska complexiteten med 6 på metod och 13 på hela klassen. Om än inga höga värden så sticker den ut mot de andra som har nästan samtliga värden lägre gällande komplexitet.</p>
 
 <h1>Förbättringar</h1>
 
@@ -122,7 +122,7 @@
 <h3>Diskussion</h3>
 <p>Jag tänker mig att detta är något man skall implementera tidigt i sitt projekt och jobba aktivt med under projektets gång. Standarden är framtagen av anledningar som högst troligt leder till generellt bättre och enklare kod. Jag märke att det blev ganske mycket ändringar på min lilla kod när jag ändrare i kortklasserna.</p>
 <p>Klara fördelar med arbetssättet är att fler skriver kod som är enklare att läsa, midnre komplicerad och lättare att underhålla. Klara nackdelar är tidsaspekten som i företagsvärlden snabbt blir en monetär fråga. Personligen känner jag att detta är något jag gärna kommer att lägga tid på i något eget projekt, fantastisk lärdom.</p>
-<p>Jag använde detta kmom till att rätta och förstå ett tidigare kmom bättre, det kommer att visa sig menm jag tror det blev en bra förbättring. Det var scrutinizer som upplyste mig om en svaghet i min kod och fick mig att tänka till några gånger extra för att sedan skriva om den och testa variablerna bättre i min router.</p>
+<p>Jag använde detta kmom till att rätta och förstå ett tidigare kmom bättre, det kommer att visa sig men jag tror det blev en bra förbättring. Det var scrutinizer som upplyste mig om en svaghet i min kod och fick mig att tänka till några gånger extra för att sedan skriva om den och testa variablerna bättre i min router.</p>
 
 
 {% endblock %}
