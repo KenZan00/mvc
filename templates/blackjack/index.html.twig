@@ -7,7 +7,10 @@
 <div class="blackjack-wrapper">
     <h1>🂡 It's all about BlackJack 🂾</h1>
     <div class="background-table" style="background-image: url({{ asset('build/images/bjtable.jpg') }})">
-        <button>PLAY</button>
+        <a href="{{ path('blackjack') }}">
+            <button class="pulse-button">PLAY</button>
+        </a>        
     </div>
+    <a class="rules" href="{{ path('rules') }}">Dont know how to play ?</a>
 </div>
 {% endblock %}

@@ -14,9 +14,15 @@ class BlackjackController extends AbstractController
         return $this->render('blackjack/index.html.twig');
     }
 
-    #[Route('/blackjack', name: 'blackjack')]
+    #[Route('/proj/blackjack', name: 'blackjack')]
     public function blackJack(): Response
     {
         return $this->render('blackjack/blackjack.html.twig');
+    }
+
+    #[Route('/proj/rules', name: 'rules')]
+    public function blackJackRules(): Response
+    {
+        return $this->render('blackjack/rules.html.twig');
     }
 }
