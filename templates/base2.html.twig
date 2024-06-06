@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('blackjack') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    
+    <body style="background-image: url({{ asset('img/purplebackground.svg') }})">
+        <header class="casino-header">
+            <div class="site-title">
+                <div class="logo-container">
+                    <img src="{{ asset('build/images/bjcasino.png') }}" alt="mvc" class="casino-logo">
+                </div>
+                <div class="nav-container">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ path('proj') }}">Home</a></li>
+                            <li><a href="{{ path('blackjack') }}">BlackJack</a></li>
+                            <li><a href="{{ path('about') }}">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2024 Kenny</p>
+        </footer>
+    </body>
+</html>

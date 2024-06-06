@@ -1,0 +1,124 @@
+body {
+    background-color: #1D0539;
+    background-image: url('../images/purplebackground.svg');
+    background-attachment: fixed;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+header {
+    height: 150px;
+    margin-bottom: 100px;
+    border-bottom: 3px solid gold;
+    
+}
+
+.site-title {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 90%;
+}
+
+.casino-logo {
+    max-height: 150px;
+    margin-top: 5rem;
+    width: auto;
+}
+
+h1, h2, h3, h4, h5, p, ul, ol {
+    color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    padding-bottom: 75px;
+    background: linear-gradient(to bottom, gold 5%, #D4CD6A 40%, #FFF9AA 78%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    position: relative;
+  text-transform: uppercase;
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+h1::after {
+    background: none;
+    content: attr(data-heading) / "";
+    left: 0;
+  top: 0;
+    z-index: -1;
+    position: absolute;
+    text-shadow: 
+    -1px 0 1px #c6bb9f, 
+    0 1px 1px #c6bb9f, 
+    5px 5px 10px rgba(0, 0, 0, 0.4),
+    -5px -5px 10px rgba(0, 0, 0, 0.4);
+}
+
+nav {
+    margin-top: 5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav li:last-child {
+    margin-right: 0;
+}
+
+nav li a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.blackjack-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-table {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 800px;
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-table button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.site-footer {
+    min-height: 100px;
+}
