@@ -27,6 +27,16 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">src/Dice</directory>
+            <directory suffix=".php">src/Entity</directory>
+            <directory suffix=".php">src/Repository</directory>
+            <file>src/Controller/BooksController.php</file>
+            <file>src/Controller/DiceGameController.php</file>
+            <file>src/Controller/LuckyController.php</file>
+            <file>src/Controller/LuckyControllerJson.php</file>
+            <file>src/Controller/ProductController.php</file>
+        </exclude>
 
         <report>
             <clover outputFile="docs/coverage.clover"/>
