@@ -1,6 +1,6 @@
-{# < ?php
+<?php
 
-namespace App\Tests\Controller;
+namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -11,8 +11,8 @@ class MetricsControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/metrics');
 
-        // $this->assertResponseIsSuccessful();
+        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Introduktion');
     }
-} #}
+}
 
