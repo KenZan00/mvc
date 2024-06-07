@@ -17,11 +17,12 @@ build:
                     # version: 8.2.4
         analysis:
             environment:
-                node: true  # Enable Node.js environment
+                node:
+                    version: "14"
             dependencies:
                 override:
-                    - npm install  # Install npm dependencies
-                    - npm run build  # Run npm build
+                    - npm install
+                    - npm run build
             tests:
                 override:
                     - php-scrutinizer-run
