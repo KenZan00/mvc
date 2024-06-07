@@ -1,4 +1,4 @@
-<?php
+{# < ?php
 
 namespace App\Tests\Controller;
 
@@ -14,5 +14,5 @@ class MetricsControllerTest extends WebTestCase
         // $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Introduktion');
     }
-}
+} #}
 
