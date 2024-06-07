@@ -1,0 +1,13 @@
+{% extends "base2.html.twig" %}
+
+{% block title %}BlackJack{% endblock %}
+
+{% block body %}
+<div class="blackjackplay-wrapper">
+    <h1>Let's play</h1>
+    <div class="background-tableplay" style="background-image: url({{ asset('build/images/blackjacktable.jpeg') }})">
+ 
+    </div>
+    <a class="rules" href="{{ path('rules') }}">Dont know how to play ?</a>
+</div>
+{% endblock %}

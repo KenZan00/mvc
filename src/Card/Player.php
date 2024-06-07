@@ -17,12 +17,17 @@ use App\Card\BlackJack;
  class Player {
     private $name;
     private $chips;
-    private $hand;
+    public CardHand $hand;
 
     public function __construct($name, $chips, CardHand $hand) {
         $this->name = $name;
         $this->chips = $chips;
         $this->hand = $hand;
     }
+
+    public function getHand() {
+        return $this->hand;
+    }
+
 
 }

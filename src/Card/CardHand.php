@@ -17,7 +17,7 @@ class CardHand
     /**
      * @var array<Card> Array containing Card
      */
-    private array $hand = [];
+    public array $hand = [];
 
     public function add(Card $card): void
     {
