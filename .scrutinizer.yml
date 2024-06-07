@@ -15,11 +15,6 @@ build:
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
-            before_script:
-                - sudo apt-get update
-                - sudo apt-get install -y nodejs npm
-                - npm install
-                - npm run build  # or `yarn install` and `yarn build` if you use yarn
         analysis:
             tests:
                 override:
