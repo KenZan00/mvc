@@ -44,6 +44,9 @@ h1, h2, h3, h4, h5, p, ul, ol {
     padding: 0;
 }
 
+p {
+    margin-bottom: 1.25rem;
+}
 h1 {
     padding-bottom: 75px;
     background: linear-gradient(to bottom, gold 5%, #D4CD6A 40%, #FFF9AA 78%); 
@@ -118,6 +121,10 @@ nav li a {
     flex-direction: column;
     justify-content: center;
     margin-bottom: 75px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 50px;
 }
 
 .background-table {
@@ -134,6 +141,13 @@ nav li a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.playform {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); */
 }
 
 .background-tableplay {

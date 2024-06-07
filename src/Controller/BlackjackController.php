@@ -17,6 +17,7 @@ class BlackjackController extends AbstractController
     #[Route('/proj/blackjack', name: 'blackjack')]
     public function blackJack(): Response
     {
+        
         return $this->render('blackjack/blackjack.html.twig');
     }
 
@@ -24,5 +25,11 @@ class BlackjackController extends AbstractController
     public function blackJackRules(): Response
     {
         return $this->render('blackjack/rules.html.twig');
+    }
+
+    #[Route('/proj/rules', name: 'proj_about')]
+    public function projAbout(): Response
+    {
+        return $this->render('blackjack/about.html.twig');
     }
 }

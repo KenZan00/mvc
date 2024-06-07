@@ -6,7 +6,11 @@
 <div class="blackjackplay-wrapper">
     <h1>Let's play</h1>
     <div class="background-tableplay" style="background-image: url({{ asset('build/images/blackjacktable.jpeg') }})">
-            
+        <form class="playform" method="post" action="">
+            <label for="name">Enter your name:</label>
+            <input type="text" name="name" placeholder="Alias" required>
+            <button type="submit">Play Blackjack</button>
+        </form>   
     </div>
     <a class="rules" href="{{ path('rules') }}">Dont know how to play ?</a>
 </div>
