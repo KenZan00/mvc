@@ -15,3 +15,4 @@ class MetricsControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Introduktion');
     }
 }
+
