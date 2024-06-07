@@ -31,6 +31,7 @@
             <directory suffix=".php">src/Dice</directory>
             <directory suffix=".php">src/Entity</directory>
             <directory suffix=".php">src/Repository</directory>
+            <directory suffix=".php">tests</directory>
             <file>src/Controller/BooksController.php</file>
             <file>src/Controller/DiceGameController.php</file>
             <file>src/Controller/LuckyController.php</file>
