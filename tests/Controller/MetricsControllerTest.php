@@ -1,9 +1,8 @@
-{# < ?php
+<?php
 
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 
 class MetricsControllerTest extends WebTestCase
 {
@@ -15,4 +14,4 @@ class MetricsControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Introduktion');
     }
-} #}
+}
