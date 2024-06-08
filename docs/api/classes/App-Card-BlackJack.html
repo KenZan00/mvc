@@ -123,7 +123,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    DeckOfCards
+    BlackJack
 
     
             <div class="phpdocumentor-element__package">
@@ -143,15 +143,15 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class DeckOfCards</p>
+            <p class="phpdocumentor-summary">Class BlackJack</p>
 
-    <section class="phpdocumentor-description"><p>A class that holds a deck of cards injected from a &quot;deck creator class&quot;</p>
+    <section class="phpdocumentor-description"><p>A class that game logic for BlackJack game</p>
 </section>
 
 
@@ -160,7 +160,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Card-DeckOfCards.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-BlackJack.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -174,65 +174,85 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/App-Card-DeckOfCards.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-BlackJack.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/App-Card-DeckOfCards.html#property_deck">$deck</a>
+    <a href="classes/App-Card-BlackJack.html#property_bank">$bank</a>
     <span>
-                        &nbsp;: array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;            </span>
+                        &nbsp;: <a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Card-BlackJack.html#property_deck">$deck</a>
+    <span>
+                        &nbsp;: <a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a>            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Card-BlackJack.html#property_player">$player</a>
+    <span>
+                        &nbsp;: <a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>            </span>
 </dt>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Card-DeckOfCards.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-BlackJack.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method___construct">__construct()</a>
+    <a href="classes/App-Card-BlackJack.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>deckOfCards constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method_countCards">countCards()</a>
+    <a href="classes/App-Card-BlackJack.html#method_bankDraw">bankDraw()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Counts the amount of cards currently in the deck</dd>
+<dd>Draw cards for bank while handvalue is under 17 points</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method_draw">draw()</a>
+    <a href="classes/App-Card-BlackJack.html#method_checkAceValue">checkAceValue()</a>
     <span>
-                                &nbsp;: array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;    </span>
+                                &nbsp;: int    </span>
 </dt>
-<dd>Draw specified amount of cards from the top of deck</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method_getDeck">getDeck()</a>
+    <a href="classes/App-Card-BlackJack.html#method_comparePoints">comparePoints()</a>
     <span>
-                                &nbsp;: array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;    </span>
+                                &nbsp;: string    </span>
 </dt>
-<dd>Get current deck of cards</dd>
+<dd>Compare points to decide the winner of the game.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method_getString">getString()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, string&gt;    </span>
-</dt>
-<dd>Retrieve string representations of cards in array</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-DeckOfCards.html#method_shuffle">shuffle()</a>
+    <a href="classes/App-Card-BlackJack.html#method_deal">deal()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Randomizing array in deck to simulate a shuffling</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-BlackJack.html#method_getBank">getBank()</a>
+    <span>
+                                &nbsp;: <a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-BlackJack.html#method_getDeck">getDeck()</a>
+    <span>
+                                &nbsp;: <a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a>    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Card-BlackJack.html#method_getPlayer">getPlayer()</a>
+    <span>
+                                &nbsp;: <a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>    </span>
+</dt>
 
     </dl>
 
@@ -245,7 +265,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/App-Card-DeckOfCards.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Card-BlackJack.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -255,25 +275,91 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_deck">
-        $deck
-        <a href="classes/App-Card-DeckOfCards.html#property_deck" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_bank">
+        $bank
+        <a href="classes/App-Card-BlackJack.html#property_bank" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$bank</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_deck">
+        $deck
+        <a href="classes/App-Card-BlackJack.html#property_deck" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a></span>
     <span class="phpdocumentor-signature__name">$deck</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_player">
+        $player
+        <a href="classes/App-Card-BlackJack.html#property_player" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$player</span>
     </code>
 
     
@@ -286,7 +372,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Card-DeckOfCards.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Card-BlackJack.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -297,21 +383,20 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/App-Card-DeckOfCards.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-BlackJack.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">deckOfCards constructor.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cards</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$deck</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$player</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bank</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -319,13 +404,25 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$cards</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$deck</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Cards as array dependancy injected</p>
-</section>
-
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$player</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$bank</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
             </dd>
             </dl>
 
@@ -339,23 +436,23 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_countCards">
-        countCards()
-        <a href="classes/App-Card-DeckOfCards.html#method_countCards" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_bankDraw">
+        bankDraw()
+        <a href="classes/App-Card-BlackJack.html#method_bankDraw" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Counts the amount of cards currently in the deck</p>
+        <p class="phpdocumentor-summary">Draw cards for bank while handvalue is under 17 points</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">countCards</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+                    <span class="phpdocumentor-signature__name">bankDraw</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -367,7 +464,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Returns amount of cards left in deck as integer</p>
+                <section class="phpdocumentor-description"><p>Return bankHandValue</p>
 </section>
 
             </section>
@@ -379,23 +476,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_draw">
-        draw()
-        <a href="classes/App-Card-DeckOfCards.html#method_draw" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_checkAceValue">
+        checkAceValue()
+        <a href="classes/App-Card-BlackJack.html#method_checkAceValue" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Draw specified amount of cards from the top of deck</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">draw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$amount</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">checkAceValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cards</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -403,13 +499,11 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$amount</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$cards</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Number cards to draw</p>
-</section>
-
+                
             </dd>
             </dl>
 
@@ -417,11 +511,113 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_comparePoints">
+        comparePoints()
+        <a href="classes/App-Card-BlackJack.html#method_comparePoints" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">89</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Compare points to decide the winner of the game.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">comparePoints</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Returns array of drawn cards</p>
+                <section class="phpdocumentor-description"><p>Returns the result of the winner.</p>
 </section>
 
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deal">
+        deal()
+        <a href="classes/App-Card-BlackJack.html#method_deal" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deal</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBank">
+        getBank()
+        <a href="classes/App-Card-BlackJack.html#method_getBank" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getBank</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
             </section>
 
 </article>
@@ -433,21 +629,20 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_getDeck">
         getDeck()
-        <a href="classes/App-Card-DeckOfCards.html#method_getDeck" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Card-BlackJack.html#method_getDeck" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get current deck of cards</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -457,11 +652,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Array of card objects in deck</p>
-</section>
-
+        <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a></span>
             </section>
 
 </article>
@@ -471,23 +662,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getString">
-        getString()
-        <a href="classes/App-Card-DeckOfCards.html#method_getString" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getPlayer">
+        getPlayer()
+        <a href="classes/App-Card-BlackJack.html#method_getPlayer" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/BlackJack.php"><a href="files/src-card-blackjack.html"><abbr title="src/Card/BlackJack.php">BlackJack.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Retrieve string representations of cards in array</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getPlayer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -497,41 +687,9 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Player.html"><abbr title="\App\Card\Player">Player</abbr></a></span>
             </section>
 
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_shuffle">
-        shuffle()
-        <a href="classes/App-Card-DeckOfCards.html#method_shuffle" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Randomizing array in deck to simulate a shuffling</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">shuffle</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
 </article>
             </section>
 
@@ -539,7 +697,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/DeckOfCards.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/BlackJack.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -638,27 +796,31 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/App-Card-DeckOfCards.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/App-Card-DeckOfCards.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/App-Card-BlackJack.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/App-Card-BlackJack.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/App-Card-DeckOfCards.html#property_deck">$deck<a href="classes/App-Card-DeckOfCards.html"></li>
+                                                    <li><a href="classes/App-Card-BlackJack.html#property_bank">$bank<a href="classes/App-Card-BlackJack.html"></li>
+                                                    <li><a href="classes/App-Card-BlackJack.html#property_deck">$deck<a href="classes/App-Card-BlackJack.html"></li>
+                                                    <li><a href="classes/App-Card-BlackJack.html#property_player">$player<a href="classes/App-Card-BlackJack.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method_countCards">countCards()</a></li>
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method_draw">draw()</a></li>
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method_getDeck">getDeck()</a></li>
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method_getString">getString()</a></li>
-                                            <li><a href="classes/App-Card-DeckOfCards.html#method_shuffle">shuffle()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_bankDraw">bankDraw()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_checkAceValue">checkAceValue()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_comparePoints">comparePoints()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_deal">deal()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_getBank">getBank()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_getDeck">getDeck()</a></li>
+                                            <li><a href="classes/App-Card-BlackJack.html#method_getPlayer">getPlayer()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -678,7 +840,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/App-Card-DeckOfCards.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Card-BlackJack.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
