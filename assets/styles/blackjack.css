@@ -42,6 +42,7 @@ h1, h2, h3, h4, h5, p, ul, ol {
     color: whitesmoke;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 p {
@@ -87,6 +88,7 @@ nav ul {
 nav li {
     display: inline-block;
     margin-right: 30px;
+    font-family: sans-serif;
 }
 
 nav li:last-child {
@@ -147,7 +149,6 @@ nav li a {
     padding: 20px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.6);
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); */
 }
 
 .background-tableplay {
@@ -184,7 +185,7 @@ button.pulse-button {
     font-size: 2rem;
   }
 
-/* Declate color shifting animation */
+
 @keyframes colorShift {
     0%, 100% {
         background: #AAA239;
@@ -197,7 +198,6 @@ button.pulse-button {
     }
   }
   
-  /* Declare border pulse animation */
   @keyframes borderPulse {
     0% {
       box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
@@ -235,4 +235,16 @@ button.pulse-button {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+}
+
+.site-footer2 {
+    padding: 50px 0;
+    text-align: center;
+    border-top: 3px solid gold;
+    align-content: center;
+}
+
+.site-footer2 p {
+    margin: 0;
+    color: #81C18F;
 }
