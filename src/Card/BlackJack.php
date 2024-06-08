@@ -14,23 +14,58 @@ use App\Card\CardHand;
  * @package App\Card
  */
 
-class BlackJack {
+class BlackJack
+{
     private DeckOfCards $deck;
     private Player $player;
     private Player $bank;
 
-    public function __construct(DeckOfCards $deck, Player $player, Player $bank) {
+    public function __construct(DeckOfCards $deck, Player $player, Player $bank)
+    {
         $this->deck = $deck;
         $this->player = $player;
         $this->bank = $bank;
     }
 
-    public function getPlayer() {
+    public function getDeck(): DeckOfCards
+    {
+        return $this->deck;
+    }
+
+    public function getPlayer(): Player
+    {
         return $this->player;
     }
 
-    public function getBank() {
+    public function getBank(): Player
+    {
         return $this->bank;
+    }
+
+    public function deal(): void 
+    {
+        $this->player->getHand()->addCardsArray($this->deck->draw(2));
+        $this->bank->getHand()->addCardsArray($this->deck->draw(1));
+    }
+
+        /**
+     * Draw cards for bank while handvalue is under 17 points
+     *
+     * @return int Return bankHandValue
+     */
+    public function bankDraw(): int
+    {   
+        $bankHand = $this->bank->getHand();
+        $bankHandValue = $this->checkAceValue($bankHand);
+
+        while ($bankHandValue < 17) {
+            $card = $this->deck->draw(1);
+            $bankHand->addCardsArray($card);
+
+            $bankHandValue = $this->checkAceValue($bankHand);
+        }
+
+        return $bankHandValue;
     }
 
     public function checkAceValue(CardHand $cards): int
@@ -45,5 +80,37 @@ class BlackJack {
 
         return (int)$totValue;
     }
-    
+
+        /**
+     * Compare points to decide the winner of the game.
+     *
+     * @return string Returns the result of the winner.
+     */
+    public function comparePoints(): string
+    {
+        $bankTotal = $this->checkAceValue($this->bank->getHand());
+        $playerTotal = $this->checkAceValue($this->player->getHand());
+
+        $low = [17, 18, 19];
+        $high = [20, 21];
+
+        switch (true) {
+            case $playerTotal > 21:
+                return 'Bank Wins, Player get bust';
+            case $bankTotal > 21:
+                return 'Player Wins, Bank get bust';
+            case $playerTotal < $bankTotal:
+                return 'Bank Wins by points';
+            case $playerTotal > $bankTotal:
+                return 'Player wins by points';
+            default:
+                if ($playerTotal == $bankTotal && in_array($playerTotal, $low)) {
+                    return 'Bank wins thru a tie in range 17-19';
+                }
+                elseif ($playerTotal == $bankTotal && in_array($playerTotal, $high)) {
+                    return 'Bank wins through a tie in range 20-21';
+                }
+        }
+
+    }
 }

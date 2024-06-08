@@ -14,18 +14,21 @@ use App\Card\BlackJack;
  * @package App\Card
  */
 
- class Player {
+class Player
+{
     private $name;
     private $chips;
     public CardHand $hand;
 
-    public function __construct($name, $chips, CardHand $hand) {
+    public function __construct($name, $chips, CardHand $hand)
+    {
         $this->name = $name;
         $this->chips = $chips;
         $this->hand = $hand;
     }
 
-    public function getHand() {
+    public function getHand()
+    {
         return $this->hand;
     }
 

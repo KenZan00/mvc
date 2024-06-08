@@ -4,9 +4,44 @@
 
 {% block body %}
 <div class="blackjackplay-wrapper">
-    <h1>Let's play</h1>
     <div class="background-tableplay" style="background-image: url({{ asset('build/images/blackjacktable.jpeg') }})">
- 
+        <h3>Bankens kort</h3>
+    
+        <div class="card-box">
+            {% for card in bankHand %}
+                <span class="card">{{ card }}</span>
+            {% endfor %}
+        </div>
+
+        <p>Totalt värde: {{ bankValue }}</p>
+
+        {{ include('flash.html.twig') }}
+
+        <h3>Spelarens kort</h3>
+        <div class="card-box">
+            {% for card in playerHand %}
+                <span class="card">{{ card }}</span>
+            {% endfor %}
+        </div>
+
+        <p>Totalt värde: {{ playerValue }}</p>
+
+        <form method="post" action="">
+            <p>
+                <input type="submit" name="draw" value="Draw card"
+                    onClick="this.form.action='{{ path('play_draw') }}';"
+                >
+                <input type="submit" name="stop" value="Stop"
+                    onClick="this.form.action='{{ path('play_stop') }}';"
+                >
+        
+                <input type="submit" name="restart" value="Restart"
+                    onClick="this.form.action='{{ path('play_restart') }}';this.form.method='get';"
+                >
+            </p>
+        </form>
+
+
     </div>
     <a class="rules" href="{{ path('rules') }}">Dont know how to play ?</a>
 </div>

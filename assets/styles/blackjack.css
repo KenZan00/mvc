@@ -164,6 +164,7 @@ nav li a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .background-table button {
@@ -209,4 +210,29 @@ button.pulse-button {
 
 .rules {
     color: #D4746A;
+}
+
+.card-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    color: #1D0539;
+
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+
+    border: 1.5px solid;
+    border-radius: 10px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
