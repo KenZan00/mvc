@@ -1,0 +1,27 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Blackjack rules{% endblock %}
+
+{% block body %}
+
+<div class="rules-wrapper">
+    <h1>API 'Blackjack'</h1>
+    <ul>
+            <li><a href="{{ path('blackjack_deck') }}">proj/api/deck</a> - Shows full deck of cards for Blackjack</li>
+            <li><a href="{{ path('blackjack_shuffle') }}">proj/api/shuffle</a> - Shows deck of cards shuffled</li>
+            <li><a href="{{ path('blackjack_player') }}">proj/api/player</a> - Shows player example with populated hand</li>
+            <li><a href="{{ path('blackjack_game') }}">proj/api/blackjack</a> - Blackjack current game state - from session</li>
+            <h5>POST</h5>
+            <form method="post" action="">
+                <li>
+                    <input type="submit" name="draw" value="proj/api/blackjack"
+                        onClick="this.form.action='{{ path('blackjack_draw') }}';"
+                    >
+                    -  Draws a card and shows result
+                </li>
+            </form>
+    </ul>
+
+    {# <a href="{{ path('library_book_isbn', {isbn: 9789144105567}) }}">ISBN example</a> #}
+</div>
+{% endblock %}

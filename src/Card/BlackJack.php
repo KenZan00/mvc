@@ -42,19 +42,19 @@ class BlackJack
         return $this->bank;
     }
 
-    public function deal(): void 
+    public function deal(): void
     {
         $this->player->getHand()->addCardsArray($this->deck->draw(2));
         $this->bank->getHand()->addCardsArray($this->deck->draw(1));
     }
 
-        /**
+    /**
      * Draw cards for bank while handvalue is under 17 points
      *
      * @return int Return bankHandValue
      */
     public function bankDraw(): int
-    {   
+    {
         $bankHand = $this->bank->getHand();
         $bankHandValue = $this->checkAceValue($bankHand);
 
@@ -81,7 +81,7 @@ class BlackJack
         return (int)$totValue;
     }
 
-        /**
+    /**
      * Compare points to decide the winner of the game.
      *
      * @return string Returns the result of the winner.
@@ -106,8 +106,7 @@ class BlackJack
             default:
                 if ($playerTotal == $bankTotal && in_array($playerTotal, $low)) {
                     return 'Bank wins thru a tie in range 17-19';
-                }
-                elseif ($playerTotal == $bankTotal && in_array($playerTotal, $high)) {
+                } elseif ($playerTotal == $bankTotal && in_array($playerTotal, $high)) {
                     return 'Bank wins through a tie in range 20-21';
                 }
         }

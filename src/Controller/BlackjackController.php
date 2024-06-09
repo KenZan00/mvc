@@ -178,4 +178,18 @@ class BlackjackController extends AbstractController
     {
         return $this->render('blackjack/about.html.twig');
     }
+
+    #[Route('/proj/api', name: 'api_blackjack')]
+    public function projApiRoutes(): Response
+    {
+        $data = [
+            'proj/api/deck' => 'Shows full deck of cards for Blackjack',
+            'proj/api/shuffle' => 'Shows deck of cards shuffled',
+            'proj/api/player' => 'Shows player example',
+            'proj/api/blackjack' => 'Blackjack class example',
+            'proj/api/player<name>' => 'Show book by ISBN'
+        ];
+
+        return $this->render('blackjack/api.html.twig', ['data' => $data]);
+    }
 }

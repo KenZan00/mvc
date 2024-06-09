@@ -27,9 +27,28 @@ class Player
         $this->hand = $hand;
     }
 
-    public function getHand()
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getChips(): string
+    {
+        return $this->chips;
+    }
+
+    public function getHand(): CardHand
     {
         return $this->hand;
+    }
+
+    public function getPlayerString(): array
+    {
+        return [
+            'name' => $this->name,
+            'chips' => $this->chips,
+            'hand' => $this->hand->getString()
+        ];
     }
 
 
