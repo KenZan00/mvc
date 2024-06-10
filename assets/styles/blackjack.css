@@ -49,7 +49,7 @@ p {
     margin-bottom: 1.25rem;
 }
 h1 {
-    padding-bottom: 75px;
+    padding-bottom: 50px;
     background: linear-gradient(to bottom, gold 5%, #D4CD6A 40%, #FFF9AA 78%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -96,7 +96,12 @@ nav li:last-child {
 }
 
 nav li a {
-    color: whitesmoke;
+    color: #81C18F;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: #D4746A;
     text-decoration: none;
 }
 
@@ -247,4 +252,38 @@ button.pulse-button {
 .site-footer2 p {
     margin: 0;
     color: #81C18F;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+th, td {
+    padding: 18px;
+    border-bottom: 2px solid #81C18F;
+}
+
+th {
+    color: #D4CD6A;
+}
+
+.highscore-wrapper {
+    display: flex;
+    max-width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.highscore-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

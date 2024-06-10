@@ -9,8 +9,10 @@ use App\Card\BlackJack;
 use App\Card\Player;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+// use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -32,8 +34,11 @@ class BlackjackController extends AbstractController
 
     #[Route('/proj/blackjack', name: 'blackjack_post', methods: ['POST'])]
     public function blackJackCallback(
-        SessionInterface $session
+        SessionInterface $session,
+        Request $request
     ): Response {
+        $name = $request->request->get('playername');
+
         $cards = new BlackJackDeckCreator();
         $deck = $cards->setupDeck();
         $deck = new DeckOfCards($deck);
@@ -48,6 +53,7 @@ class BlackjackController extends AbstractController
         $game = new blackJack($deck, $player, $bank);
         $game->deal();
 
+        $session->set('playername', $name);
         $session->set('blackjack', $game);
 
 
@@ -64,7 +70,9 @@ class BlackjackController extends AbstractController
             "playerHand" => '',
             "playerValue" => '',
             "bankHand" => '',
-            "bankValue" => ''
+            "bankValue" => '',
+            "playerMoney" => '',
+            "bankMoney" => ''
         ];
 
         if($game !== null) {
@@ -78,7 +86,9 @@ class BlackjackController extends AbstractController
                 "playerHand" => $playerHand->getString(),
                 "playerValue" => $playerValue,
                 "bankHand" => $bankHand->getString(),
-                "bankValue" => $bankValue
+                "bankValue" => $bankValue,
+                "playerMoney" => $game->getPlayer()->getChips(),
+                "bankMoney" => $game->getBank()->getChips()
             ];
         }
 
@@ -145,6 +155,7 @@ class BlackjackController extends AbstractController
     public function restartGame(SessionInterface $session): Response
     {
         $session->remove("blackjack");
+        $session->remove("playername");
 
         $cards = new BlackJackDeckCreator();
         $deck = $cards->setupDeck();

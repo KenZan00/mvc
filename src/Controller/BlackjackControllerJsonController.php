@@ -87,7 +87,7 @@ class BlackjackControllerJsonController
     public function blackjackApiProj(
         SessionInterface $session
     ): Response {
-        
+
         /** @var BlackJack $game */
         $game = $session->get("blackjack");
 

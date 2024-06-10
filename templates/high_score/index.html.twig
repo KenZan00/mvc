@@ -1,0 +1,27 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello HighScoreController!{% endblock %}
+
+{% block body %}
+
+<section class="highscore-wrapper">
+    <h1>Highscore</h1>
+    <div class="highscore-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in score %}
+                    <tr>
+                        <td>{{ score.getName|e }}</td> <td>{{ score.getScore|e }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}

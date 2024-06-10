@@ -5,7 +5,7 @@
 {% block body %}
 <div class="blackjackplay-wrapper">
     <div class="background-tableplay" style="background-image: url({{ asset('build/images/blackjacktable.jpeg') }})">
-        <h3>Bankens kort</h3>
+        <h3>Banken ${{ bankMoney }}</h3>
     
         <div class="card-box">
             {% for card in bankHand %}
@@ -17,7 +17,7 @@
 
         {{ include('flash.html.twig') }}
 
-        <h3>Spelarens kort</h3>
+        <h3>Spelare ${{ playerMoney }}</h3>
         <div class="card-box">
             {% for card in playerHand %}
                 <span class="card">{{ card }}</span>
@@ -39,6 +39,9 @@
                     onClick="this.form.action='{{ path('play_restart') }}';this.form.method='get';"
                 >
             </p>
+        </form>
+        <form method="post" action="{{ path('highscore_create') }}">
+            <button type="submit">SAVE</button>
         </form>
 
 
