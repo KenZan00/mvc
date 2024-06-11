@@ -1,0 +1,22 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Blackjack rules{% endblock %}
+
+{% block body %}
+
+<div class="rules-wrapper">
+    <h1>About</h1>
+
+    <h2>Om databasen</h2>
+        <p>En databas i sin enklaste form som endast sparar nödvändig information för att kunna hantera en highscorelista från Blackjackspelet</p>
+    <div>
+        <a href="{{ asset('img/databas.jpg') }}">
+            <img src="{{ asset('img/databas.jpg') }}" alt="">
+        </a>
+    </div>
+    <p>'name' - Håller användarens namn och 'score' håller dess poäng.</p>
+    <p>Databasen har inga relationer eftersom den på enklaste sätt fungerar som en gammal arkadmaskin som sparaade highscore och presenterade dessa från till exempel 1-10 placering</p>
+    <p>Jag använde sqlite för att jobba mot och öva mig mot databasen. Jag har inte gjort några enhetstester mot den, egentligen enbart för att "tiden inte fanns över till detta" i projektet då jag lagt mycket tid på andra delar av koden.</p>
+    <p>I databaskursen jobbade vi direkt med sql och allt vad det innebär. Jag upplevde det som mycket mer anpassningsbart och det gick hela tiden att skriva de funktioner och metoder man beövde och kunde sedan jobba med dem på ett effektivt sätt. Jag upplevde att flexibiliteten i det systemet var större och att det gick att anpassa mer. Fördelen med orm var just att man slipper skriva all den kod och att när väl entity, repository och alla kopplingar är satta, så fungerar det väldigt smidigt och de funktioner som var färdigskriva var smidiga.</p>
+    <p>Likheterna ligger i uppbyggnaden då både egentligen är sql i slutet. Det gick även att skriva sql-kod och få tillbaka ett rått resultet om det behövdes. FÖr att sammanfatta detta hela så uppfattar jag endå att man kan komma långt med ORM med tiden som man upoptäcker hur det går att anpassa och modifiera sökningar osv.  </p>
+{% endblock %}

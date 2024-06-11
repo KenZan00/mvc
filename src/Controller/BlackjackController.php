@@ -248,6 +248,12 @@ class BlackjackController extends AbstractController
         return $this->render('blackjack/about.html.twig');
     }
 
+    #[Route('/proj/about/database', name: 'about_database')]
+    public function projAboutDatabase(): Response
+    {
+        return $this->render('blackjack/about_database.html.twig');
+    }
+
     #[Route('/proj/api', name: 'api_blackjack')]
     public function projApiRoutes(): Response
     {
