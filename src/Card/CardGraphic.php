@@ -19,6 +19,9 @@ class CardGraphic extends Card
         parent::__construct($rank, $suit, $value);
     }
 
+    /**
+    * @return string Cards as string
+    */
     public function getAsString(): string
     {
         $ranks = $this->getRank();

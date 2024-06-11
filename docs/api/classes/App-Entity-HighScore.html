@@ -118,16 +118,13 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/app.html">App</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-card.html">Card</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-entity.html">Entity</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    CardGraphic
+    HighScore
 
-        <span class="phpdocumentor-element__extends">
-        extends <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>
-    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -145,16 +142,13 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class Card</p>
-
-    <section class="phpdocumentor-description"><p>A class that holds single play cards</p>
-</section>
+        
 
 
 
@@ -162,7 +156,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Card-CardGraphic.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Entity-HighScore.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -176,76 +170,65 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/App-Card-CardGraphic.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Entity-HighScore.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Card.html#property_rank">$rank</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Entity-HighScore.html#property_id">$id</a>
     <span>
-                        &nbsp;: string            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Card.html#property_suit">$suit</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/App-Card-Card.html#property_value">$value</a>
-    <span>
-                        &nbsp;: int            </span>
+                        &nbsp;: int|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/App-Card-CardGraphic.html#property_representation">$representation</a>
+    <a href="classes/App-Entity-HighScore.html#property_name">$name</a>
     <span>
-                        &nbsp;: array&lt;string|int, string&gt;            </span>
+                        &nbsp;: string|null            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Entity-HighScore.html#property_score">$score</a>
+    <span>
+                        &nbsp;: int|null            </span>
 </dt>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Card-CardGraphic.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Entity-HighScore.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-CardGraphic.html#method___construct">__construct()</a>
+    <a href="classes/App-Entity-HighScore.html#method_getId">getId()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: int|null    </span>
 </dt>
-<dd>Card constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-CardGraphic.html#method_getAsString">getAsString()</a>
+    <a href="classes/App-Entity-HighScore.html#method_getName">getName()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: string|null    </span>
 </dt>
-<dd>Method to get string representation of a Card object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Card.html#method_getRank">getRank()</a>
+    <a href="classes/App-Entity-HighScore.html#method_getScore">getScore()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: int|null    </span>
 </dt>
-<dd>Method to get Rank of Card</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Card.html#method_getSuit">getSuit()</a>
+    <a href="classes/App-Entity-HighScore.html#method_setName">setName()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: static    </span>
 </dt>
-<dd>Method to get Suit of Card</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Card-Card.html#method_getValue">getValue()</a>
+    <a href="classes/App-Entity-HighScore.html#method_setScore">setScore()</a>
     <span>
-                                &nbsp;: int    </span>
+                                &nbsp;: static    </span>
 </dt>
-<dd>Method to get Value of Card</dd>
 
     </dl>
 
@@ -258,111 +241,39 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/App-Card-CardGraphic.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Entity-HighScore.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -protected
+            -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_rank">
-        $rank
-        <a href="classes/App-Card-Card.html#property_rank" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_id">
+        $id
+        <a href="classes/App-Entity-HighScore.html#property_id" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$rank</span>
-    </code>
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">int|null</span>
+    <span class="phpdocumentor-signature__name">$id</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Rank of card</p>
-</section>
-
     
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_suit">
-        $suit
-        <a href="classes/App-Card-Card.html#property_suit" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">19</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$suit</span>
-    </code>
-
-    
-        <section class="phpdocumentor-description"><p>Suit of card</p>
-</section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_value">
-        $value
-        <a href="classes/App-Card-Card.html#property_value" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$value</span>
-    </code>
-
-    
-        <section class="phpdocumentor-description"><p>Value of card</p>
-</section>
-
     
 
 </article>
@@ -373,31 +284,62 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_representation">
-        $representation
-        <a href="classes/App-Card-CardGraphic.html#property_representation" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_name">
+        $name
+        <a href="classes/App-Entity-HighScore.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
-    <span class="phpdocumentor-signature__name">$representation</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;Spades&#039; =&gt; &#039;♠&#039;, &#039;Hearts&#039; =&gt; &#039;♥&#039;, &#039;Diamonds&#039; =&gt; &#039;♦&#039;, &#039;Clubs&#039; =&gt; &#039;♣&#039;]</span></code>
+        <span class="phpdocumentor-signature__type">string|null</span>
+    <span class="phpdocumentor-signature__name">$name</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Representation of suits</p>
-</section>
+    
+    
 
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_score">
+        $score
+        <a href="classes/App-Entity-HighScore.html#property_score" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">int|null</span>
+    <span class="phpdocumentor-signature__name">$score</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
     
 
 </article>
@@ -406,7 +348,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Card-CardGraphic.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Entity-HighScore.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -415,23 +357,127 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/App-Card-CardGraphic.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/App-Entity-HighScore.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Card constructor.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rank</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getName">
+        getName()
+        <a href="classes/App-Entity-HighScore.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getScore">
+        getScore()
+        <a href="classes/App-Entity-HighScore.html#method_getScore" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getScore</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setName">
+        setName()
+        <a href="classes/App-Entity-HighScore.html#method_setName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -439,75 +485,19 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$rank</span>
+                <span class="phpdocumentor-signature__argument__name">$name</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Rank of cards example (A, 2, 3 - etc).</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$suit</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Suit of cards example ('Spades', 'Hearts').</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value of cards as integer.</p>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getAsString">
-        getAsString()
-        <a href="classes/App-Card-CardGraphic.html#method_getAsString" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">25</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method to get string representation of a Card object</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAsString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Cards as string</p>
-</section>
-
+        <span class="phpdocumentor-signature__response_type">static</span>
             </section>
 
 </article>
@@ -517,117 +507,42 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getRank">
-        getRank()
-        <a href="classes/App-Card-Card.html#method_getRank" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setScore">
+        setScore()
+        <a href="classes/App-Entity-HighScore.html#method_setScore" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/HighScore.php"><a href="files/src-entity-highscore.html"><abbr title="src/Entity/HighScore.php">HighScore.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to get Rank of Card</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getRank</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">setScore</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$score</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$score</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Return rank of card</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getSuit">
-        getSuit()
-        <a href="classes/App-Card-Card.html#method_getSuit" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">43</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method to get Suit of Card</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getSuit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Return suit of card</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getValue">
-        getValue()
-        <a href="classes/App-Card-Card.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Card.php"><a href="files/src-card-card.html"><abbr title="src/Card/Card.php">Card.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">63</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method to get Value of Card</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">int</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Return Value of card</p>
-</section>
-
+        <span class="phpdocumentor-signature__response_type">static</span>
             </section>
 
 </article>
@@ -637,7 +552,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/CardGraphic.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Entity/HighScore.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -736,29 +651,28 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/App-Card-CardGraphic.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/App-Card-CardGraphic.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/App-Entity-HighScore.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/App-Entity-HighScore.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/App-Card-Card.html#property_rank">$rank<a href="classes/App-Card-CardGraphic.html"></li>
-                                                    <li><a href="classes/App-Card-Card.html#property_suit">$suit<a href="classes/App-Card-CardGraphic.html"></li>
-                                                    <li><a href="classes/App-Card-Card.html#property_value">$value<a href="classes/App-Card-CardGraphic.html"></li>
-                                                    <li><a href="classes/App-Card-CardGraphic.html#property_representation">$representation<a href="classes/App-Card-CardGraphic.html"></li>
+                                                    <li><a href="classes/App-Entity-HighScore.html#property_id">$id<a href="classes/App-Entity-HighScore.html"></li>
+                                                    <li><a href="classes/App-Entity-HighScore.html#property_name">$name<a href="classes/App-Entity-HighScore.html"></li>
+                                                    <li><a href="classes/App-Entity-HighScore.html#property_score">$score<a href="classes/App-Entity-HighScore.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/App-Card-CardGraphic.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/App-Card-CardGraphic.html#method_getAsString">getAsString()</a></li>
-                                            <li><a href="classes/App-Card-Card.html#method_getRank">getRank()</a></li>
-                                            <li><a href="classes/App-Card-Card.html#method_getSuit">getSuit()</a></li>
-                                            <li><a href="classes/App-Card-Card.html#method_getValue">getValue()</a></li>
+                                            <li><a href="classes/App-Entity-HighScore.html#method_getId">getId()</a></li>
+                                            <li><a href="classes/App-Entity-HighScore.html#method_getName">getName()</a></li>
+                                            <li><a href="classes/App-Entity-HighScore.html#method_getScore">getScore()</a></li>
+                                            <li><a href="classes/App-Entity-HighScore.html#method_setName">setName()</a></li>
+                                            <li><a href="classes/App-Entity-HighScore.html#method_setScore">setScore()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -778,7 +692,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/App-Card-CardGraphic.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Entity-HighScore.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -101,6 +101,9 @@ class CardHand
         return $aces;
     }
 
+    /**
+     * Simple method to emty CardHand by emptying array
+     */
     public function emptyHand(): void
     {
         $this->hand = [];

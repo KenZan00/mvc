@@ -8,7 +8,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Blackjack\u0020constructor.",
             "url": "classes/App-Card-BlackJack.html#method___construct"
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003AgetDeck\u0028\u0029",
@@ -28,7 +28,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003Adeal\u0028\u0029",
             "name": "deal",
-            "summary": "",
+            "summary": "Deal\u00201\u0020card\u0020for\u0020bank\nDeal\u00202\u0020cards\u0020for\u0020player",
             "url": "classes/App-Card-BlackJack.html#method_deal"
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003AbankDraw\u0028\u0029",
@@ -38,8 +38,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003AcheckAceValue\u0028\u0029",
             "name": "checkAceValue",
-            "summary": "",
+            "summary": "Check\u0020value\u0020of\u0020CardHand\u0020and\u0020return\u0020adjusted\u0020value\u0020after\u0020calculating\u0020for\u0020aces",
             "url": "classes/App-Card-BlackJack.html#method_checkAceValue"
+        },                {
+            "fqsen": "\\App\\Card\\BlackJack\u003A\u003Amoney2Winner\u0028\u0029",
+            "name": "money2Winner",
+            "summary": "Decide\u0020winner\u0020of\u0020pot\u0020and\u0020set\u0020balance\u0020accordingly",
+            "url": "classes/App-Card-BlackJack.html#method_money2Winner"
         },                {
             "fqsen": "\\App\\Card\\BlackJack\u003A\u003AcomparePoints\u0028\u0029",
             "name": "comparePoints",
@@ -181,6 +186,11 @@ Search.appendIndex(
             "summary": "Method\u0020that\u0020counts\u0020the\u0020number\u0020of\u0020aces\u0020in\u0020hand",
             "url": "classes/App-Card-CardHand.html#method_aces"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AemptyHand\u0028\u0029",
+            "name": "emptyHand",
+            "summary": "Simple\u0020method\u0020to\u0020emty\u0020CardHand\u0020by\u0020emptying\u0020array",
+            "url": "classes/App-Card-CardHand.html#method_emptyHand"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024hand",
             "name": "hand",
             "summary": "",
@@ -308,13 +318,43 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Player\u0020constructor.",
             "url": "classes/App-Card-Player.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "Get\u0020players\u0020name",
+            "url": "classes/App-Card-Player.html#method_getName"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AgetChips\u0028\u0029",
+            "name": "getChips",
+            "summary": "Get\u0020number\u0020of\u0020players\u0020chips\u0020left",
+            "url": "classes/App-Card-Player.html#method_getChips"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AadjustChips\u0028\u0029",
+            "name": "adjustChips",
+            "summary": "Adjust\u0020chips\u0020method",
+            "url": "classes/App-Card-Player.html#method_adjustChips"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AgetBet\u0028\u0029",
+            "name": "getBet",
+            "summary": "Get\u0020number\u0020of\u0020players\u0020entered\u0020bet",
+            "url": "classes/App-Card-Player.html#method_getBet"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AsetBet\u0028\u0029",
+            "name": "setBet",
+            "summary": "Set\u0020the\u0020amount\u0020from\u0020bet\u0020for\u0020the\u0020player.",
+            "url": "classes/App-Card-Player.html#method_setBet"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AgetHand\u0028\u0029",
             "name": "getHand",
-            "summary": "",
+            "summary": "Get\u0020players\u0020hand\u0020of\u0020cards.",
             "url": "classes/App-Card-Player.html#method_getHand"
+        },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003AgetPlayerString\u0028\u0029",
+            "name": "getPlayerString",
+            "summary": "Get\u0020representation\u0020as\u0020string,\u0020of\u0020player.",
+            "url": "classes/App-Card-Player.html#method_getPlayerString"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A\u0024name",
             "name": "name",
@@ -331,6 +371,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-Player.html#property_hand"
         },                {
+            "fqsen": "\\App\\Card\\Player\u003A\u003A\u0024bet",
+            "name": "bet",
+            "summary": "",
+            "url": "classes/App-Card-Player.html#property_bet"
+        },                {
             "fqsen": "\\App\\Controller\\BlackjackController",
             "name": "BlackjackController",
             "summary": "",
@@ -345,6 +390,16 @@ Search.appendIndex(
             "name": "blackJack",
             "summary": "",
             "url": "classes/App-Controller-BlackjackController.html#method_blackJack"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AblackJackBet\u0028\u0029",
+            "name": "blackJackBet",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackController.html#method_blackJackBet"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AblackJackBetCallBack\u0028\u0029",
+            "name": "blackJackBetCallBack",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackController.html#method_blackJackBetCallBack"
         },                {
             "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AblackJackCallback\u0028\u0029",
             "name": "blackJackCallback",
@@ -371,6 +426,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-BlackjackController.html#method_restartGame"
         },                {
+            "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AdealCards\u0028\u0029",
+            "name": "dealCards",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackController.html#method_dealCards"
+        },                {
             "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AblackJackRules\u0028\u0029",
             "name": "blackJackRules",
             "summary": "",
@@ -380,6 +440,41 @@ Search.appendIndex(
             "name": "projAbout",
             "summary": "",
             "url": "classes/App-Controller-BlackjackController.html#method_projAbout"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackController\u003A\u003AprojApiRoutes\u0028\u0029",
+            "name": "projApiRoutes",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackController.html#method_projApiRoutes"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController",
+            "name": "BlackjackControllerJsonController",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController\u003A\u003AdeckApiProj\u0028\u0029",
+            "name": "deckApiProj",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html#method_deckApiProj"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController\u003A\u003AshuffleApiProj\u0028\u0029",
+            "name": "shuffleApiProj",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html#method_shuffleApiProj"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController\u003A\u003AplayerApiProj\u0028\u0029",
+            "name": "playerApiProj",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html#method_playerApiProj"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController\u003A\u003AblackjackApiProj\u0028\u0029",
+            "name": "blackjackApiProj",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html#method_blackjackApiProj"
+        },                {
+            "fqsen": "\\App\\Controller\\BlackjackControllerJsonController\u003A\u003AplayerDraw\u0028\u0029",
+            "name": "playerDraw",
+            "summary": "",
+            "url": "classes/App-Controller-BlackjackControllerJsonController.html#method_playerDraw"
         },                {
             "fqsen": "\\App\\Controller\\BooksController",
             "name": "BooksController",
@@ -560,6 +655,26 @@ Search.appendIndex(
             "name": "save",
             "summary": "",
             "url": "classes/App-Controller-DiceGameController.html#method_save"
+        },                {
+            "fqsen": "\\App\\Controller\\HighScoreController",
+            "name": "HighScoreController",
+            "summary": "",
+            "url": "classes/App-Controller-HighScoreController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\HighScoreController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-HighScoreController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\HighScoreController\u003A\u003AcreateHighScore\u0028\u0029",
+            "name": "createHighScore",
+            "summary": "",
+            "url": "classes/App-Controller-HighScoreController.html#method_createHighScore"
+        },                {
+            "fqsen": "\\App\\Controller\\HighScoreController\u003A\u003AshowAllHighScore\u0028\u0029",
+            "name": "showAllHighScore",
+            "summary": "",
+            "url": "classes/App-Controller-HighScoreController.html#method_showAllHighScore"
         },                {
             "fqsen": "\\App\\Controller\\LuckyController",
             "name": "LuckyController",
@@ -896,6 +1011,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Books.html#property_picture"
         },                {
+            "fqsen": "\\App\\Entity\\HighScore",
+            "name": "HighScore",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#method_getName"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#method_setName"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003AgetScore\u0028\u0029",
+            "name": "getScore",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#method_getScore"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003AsetScore\u0028\u0029",
+            "name": "setScore",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#method_setScore"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#property_name"
+        },                {
+            "fqsen": "\\App\\Entity\\HighScore\u003A\u003A\u0024score",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Entity-HighScore.html#property_score"
+        },                {
             "fqsen": "\\App\\Entity\\Product",
             "name": "Product",
             "summary": "",
@@ -960,6 +1120,21 @@ Search.appendIndex(
             "name": "findOneByIsbnField2",
             "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
             "url": "classes/App-Repository-BooksRepository.html#method_findOneByIsbnField2"
+        },                {
+            "fqsen": "\\App\\Repository\\HighScoreRepository",
+            "name": "HighScoreRepository",
+            "summary": "",
+            "url": "classes/App-Repository-HighScoreRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\HighScoreRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-HighScoreRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\HighScoreRepository\u003A\u003AhighScore10\u0028\u0029",
+            "name": "highScore10",
+            "summary": "",
+            "url": "classes/App-Repository-HighScoreRepository.html#method_highScore10"
         },                {
             "fqsen": "\\App\\Repository\\ProductRepository",
             "name": "ProductRepository",

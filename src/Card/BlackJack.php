@@ -5,7 +5,6 @@ namespace App\Card;
 use App\Card\DeckOfCards;
 use App\Card\Player;
 use App\Card\CardHand;
-use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * Class BlackJack
@@ -17,10 +16,22 @@ use phpDocumentor\Reflection\Types\Boolean;
 
 class BlackJack
 {
+    /** @var DeckOfCards object containing Cards */
     private DeckOfCards $deck;
+    
+    /** @var Player object containing a Player */
     private Player $player;
+
+    /** @var Player object containing a Player */
     private Player $bank;
 
+    /**
+     * Blackjack constructor.
+     *
+     * @param DeckOfCards[] $deck deckOfCards for gamelogic
+     * @param Player[] $player Player as player object
+     * @param Player[] $bank Bank as player objekt
+     */
     public function __construct(DeckOfCards $deck, Player $player, Player $bank)
     {
         $this->deck = $deck;
@@ -43,6 +54,10 @@ class BlackJack
         return $this->bank;
     }
 
+    /**
+     * Deal 1 card for bank
+     * Deal 2 cards for player
+     */
     public function deal(): void
     {
         $this->player->getHand()->addCardsArray($this->deck->draw(2));
@@ -69,6 +84,14 @@ class BlackJack
         return $bankHandValue;
     }
 
+
+    /**
+     * Check value of CardHand and return adjusted value after calculating for aces
+     * 
+     * @param CardHand $cards
+     *
+     * @return int Return hand value
+     */
     public function checkAceValue(CardHand $cards): int
     {
         $totValue = $cards->handValue();
@@ -83,9 +106,12 @@ class BlackJack
     }
 
     /**
-     * Decide winner of pot and set balance
+     * Decide winner of pot and set balance accordingly
+     * 
+     * @param CardHand $playerCards The players hand.
+     * @param CardHand $bankCards The banks hand.
+     * @param int $bet The bet placed by player.
      *
-     * @set new balance for player and bank
      */
     public function money2Winner(CardHand $playerCards, CardHand $bankCards, int $bet): void
     {
