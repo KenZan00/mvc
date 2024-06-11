@@ -38,11 +38,14 @@ class HighScoreController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $playername = $session->get('playername');
+        $game = $session->get("blackjack");
+
+        $playerMoney = $game->getPlayer()->getChips();
 
         if ($playername) {
             $score = new HighScore();
             $score->setName($playername);
-            $score->setScore(rand(1, 900));
+            $score->setScore($playerMoney);
 
             // tell Doctrine you want to (eventually) save the Product
             // (no queries yet)

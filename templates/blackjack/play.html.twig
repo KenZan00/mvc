@@ -17,6 +17,8 @@
 
         {{ include('flash.html.twig') }}
 
+        <h3 class="stake">At stake: ${{ bet }}</h3>
+
         <h3>Spelare ${{ playerMoney }}</h3>
         <div class="card-box">
             {% for card in playerHand %}
@@ -40,6 +42,11 @@
                 >
             </p>
         </form>
+
+        <form method="post" action="{{ path('blackjack_deal') }}">
+            <button type="submit">Deal Cards</button>
+        </form>
+        
         <form method="post" action="{{ path('highscore_create') }}">
             <button type="submit">SAVE</button>
         </form>

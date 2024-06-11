@@ -287,3 +287,11 @@ th {
     justify-content: center;
     width: 100%;
 }
+
+.stake {
+    padding: 20px;
+    background-color: #1D0539;
+    color: #D4746A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

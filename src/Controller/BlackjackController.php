@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-// use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -26,10 +25,45 @@ class BlackjackController extends AbstractController
 
     #[Route('/proj/blackjack', name: 'blackjack', methods: ['GET'])]
     public function blackJack(
-        SessionInterface $session
     ): Response {
 
         return $this->render('blackjack/blackjack.html.twig');
+    }
+
+    #[Route('/proj/blackjack/bet', name: 'blackjack_bet_get', methods: ['GET'])]
+    public function blackJackBet(
+        SessionInterface $session
+    ): Response {
+        $game = $session->get("blackjack");
+
+        $data = [
+            "playerMoney" => $game->getPlayer()->getChips()
+        ];
+
+        return $this->render('blackjack/bet.html.twig', $data);
+    }
+
+    #[Route('/proj/blackjack/bet', name: 'blackjack_bet', methods: ['POST'])]
+    public function blackJackBetCallBack(
+        SessionInterface $session,
+        Request $request
+    ): Response {
+
+        /** @var BlackJack $game */
+        $game = $session->get("blackjack");
+
+        if($game !== null) {
+            $bet = (int) $request->request->get('bet');
+            $player = $game->getPlayer();
+        }
+
+        if ($bet > 0 && $bet <= $player->getChips()) {
+            $player->setBet($bet);
+        }
+
+        $game->deal();
+        $session->set('blackjack', $game);
+        return $this->redirectToRoute('play');
     }
 
     #[Route('/proj/blackjack', name: 'blackjack_post', methods: ['POST'])]
@@ -37,6 +71,7 @@ class BlackjackController extends AbstractController
         SessionInterface $session,
         Request $request
     ): Response {
+
         $name = $request->request->get('playername');
 
         $cards = new BlackJackDeckCreator();
@@ -51,13 +86,12 @@ class BlackjackController extends AbstractController
         $bank = new Player('Dealer', 9000, $bankhand);
 
         $game = new blackJack($deck, $player, $bank);
-        $game->deal();
 
         $session->set('playername', $name);
         $session->set('blackjack', $game);
 
 
-        return $this->redirectToRoute('play');
+        return $this->redirectToRoute('blackjack_bet_get');
     }
 
     #[Route('/proj/blackjack/play', name: 'play', methods: ['GET'])]
@@ -72,7 +106,8 @@ class BlackjackController extends AbstractController
             "bankHand" => '',
             "bankValue" => '',
             "playerMoney" => '',
-            "bankMoney" => ''
+            "bankMoney" => '',
+            "bet" => ''
         ];
 
         if($game !== null) {
@@ -88,7 +123,8 @@ class BlackjackController extends AbstractController
                 "bankHand" => $bankHand->getString(),
                 "bankValue" => $bankValue,
                 "playerMoney" => $game->getPlayer()->getChips(),
-                "bankMoney" => $game->getBank()->getChips()
+                "bankMoney" => $game->getBank()->getChips(),
+                "bet" => $game->getPlayer()->getBet()
             ];
         }
 
@@ -99,6 +135,7 @@ class BlackjackController extends AbstractController
     public function blackJackDraw(
         SessionInterface $session
     ): Response {
+
         /** @var BlackJack $game */
         $game = $session->get("blackjack");
 
@@ -131,14 +168,19 @@ class BlackjackController extends AbstractController
     public function blackJackStop(
         SessionInterface $session
     ): Response {
-        /** @var BlackJack $game */
 
+        /** @var BlackJack $game */
         $game = $session->get("blackjack");
         $winner = null;
 
         if ($game !== null) {
             $game->bankDraw();
             $winner = $game->comparePoints();
+
+            $playerHand = $game->getPlayer()->getHand();
+            $bankHand = $game->getBank()->getHand();
+            $bet = $game->getPlayer()->getBet();
+            $game->money2Winner($playerHand, $bankHand, $bet);
         }
 
         if ($winner !== null) {
@@ -172,10 +214,26 @@ class BlackjackController extends AbstractController
 
         $session->set('blackjack', $game);
 
-        $session->set("game21_logic", $game);
-
-
         return $this->redirectToRoute('blackjack');
+    }
+
+    #[Route('/proj/blackjack/deal', name: 'blackjack_deal', methods: ['POST'])]
+    public function dealCards(SessionInterface $session): Response
+    {
+        /** @var BlackJack $game */
+        $game = $session->get('blackjack');
+
+        if (!$game) {
+            return $this->redirectToRoute('blackjack_post');
+        }
+
+        $game->getPlayer()->getHand()->emptyHand();
+        $game->getBank()->getHand()->emptyHand();
+
+        $session->set('GameOver', false);
+        $session->set('blackjack', $game);
+
+        return $this->redirectToRoute('blackjack_bet_get');
     }
 
     #[Route('/proj/rules', name: 'rules')]

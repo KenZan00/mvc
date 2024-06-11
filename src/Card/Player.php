@@ -18,7 +18,8 @@ class Player
 {
     private $name;
     private $chips;
-    public CardHand $hand;
+    private CardHand $hand;
+    private $bet;
 
     public function __construct($name, $chips, CardHand $hand)
     {
@@ -35,6 +36,21 @@ class Player
     public function getChips(): string
     {
         return $this->chips;
+    }
+
+    public function adjustChips(int $bet): void
+    {
+        $this->chips += $bet;
+    }
+
+    public function getBet(): int
+    {
+        return $this->bet;
+    }
+
+    public function setBet(int $bet): void
+    {
+        $this->bet = $bet;
     }
 
     public function getHand(): CardHand

@@ -1,0 +1,24 @@
+{% extends "base2.html.twig" %}
+
+{% block title %}BlackJack{% endblock %}
+
+{% block body %}
+<div class="blackjackplay-wrapper">
+    <div class="background-tableplay" style="background-image: url({{ asset('build/images/blackjacktable.jpeg') }})">
+
+        {{ include('flash.html.twig') }}
+
+        <h3>Spelare ${{ playerMoney }}</h3>
+
+
+        <form method="post" action="{{ path('blackjack_bet') }}">
+            <p>
+                <button type="submit" name="bet" value="50">Bet 50</button>
+                <button type="submit" name="bet" value="100">Bet 100</button>
+            </p>
+        </form>
+
+    </div>
+    <a class="rules" href="{{ path('rules') }}">Dont know how to play ?</a>
+</div>
+{% endblock %}

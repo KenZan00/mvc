@@ -5,6 +5,7 @@ namespace App\Card;
 use App\Card\DeckOfCards;
 use App\Card\Player;
 use App\Card\CardHand;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * Class BlackJack
@@ -79,6 +80,37 @@ class BlackJack
         }
 
         return (int)$totValue;
+    }
+
+    /**
+     * Decide winner of pot and set balance
+     *
+     * @set new balance for player and bank
+     */
+    public function money2Winner(CardHand $playerCards, CardHand $bankCards, int $bet): void
+    {
+        $playerValue = $this->checkAceValue($playerCards);
+        $bankValue = $this->checkAceValue($bankCards);
+
+        // Check if someone is bust
+        if ($playerValue > 21) {
+            $this->player->adjustChips(-$bet);
+            $this->bank->adjustChips($bet);
+
+        } elseif ($bankValue > 21) {
+            $this->player->adjustChips($bet);
+            $this->bank->adjustChips(-$bet);
+            // Decide who gets the pot and retract from other
+        } else {
+            if ($playerValue > $bankValue) {
+                $this->player->adjustChips($bet);
+                $this->bank->adjustChips(-$bet);
+
+            } elseif ($playerValue < $bankValue) {
+                $this->player->adjustChips(-$bet);
+                $this->bank->adjustChips($bet);
+            }
+        }
     }
 
     /**

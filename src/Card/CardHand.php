@@ -100,4 +100,9 @@ class CardHand
         }
         return $aces;
     }
+
+    public function emptyHand(): void
+    {
+        $this->hand = [];
+    }
 }
