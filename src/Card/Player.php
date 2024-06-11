@@ -87,7 +87,7 @@ class Player
      */
     public function setBet(int $bet): void
     {
-        $this->bet = $bet;
+        $this->bet = (int) $bet;
     }
 
     /**

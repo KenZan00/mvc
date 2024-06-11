@@ -48,6 +48,7 @@ class BlackjackController extends AbstractController
         SessionInterface $session,
         Request $request
     ): Response {
+        $bet = 0;
 
         /** @var BlackJack $game */
         $game = $session->get("blackjack");
@@ -55,14 +56,14 @@ class BlackjackController extends AbstractController
         if($game !== null) {
             $bet = (int) $request->request->get('bet');
             $player = $game->getPlayer();
-        }
 
-        if ($bet > 0 && $bet <= $player->getChips()) {
-            $player->setBet($bet);
-        }
+            if ($bet > 0 && $bet <= $player->getChips()) {
+                $player->setBet($bet);
+            }
 
-        $game->deal();
-        $session->set('blackjack', $game);
+            $game->deal();
+            $session->set('blackjack', $game);
+        }
         return $this->redirectToRoute('play');
     }
 

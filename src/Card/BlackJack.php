@@ -167,6 +167,8 @@ class BlackJack
                 } elseif ($playerTotal == $bankTotal && in_array($playerTotal, $high)) {
                     return 'Bank wins through a tie in range 20-21';
                 }
+                
+            return 'No winner';
         }
 
     }
