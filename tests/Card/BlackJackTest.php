@@ -93,21 +93,21 @@ class BlackJackTest extends TestCase
             new Card('10', 'Spades', 10),
             new Card('10', 'Clubs', 10)
         ]);
-    
+
         $bank = new Player('Bank', 9000, new CardHand());
         $bank->getHand()->addCardsArray([
             new Card('King', 'Diamonds', 10),
             new Card('10', 'Spades', 10)
         ]);
-        
+
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
 
         $blackjack = new BlackJack($deck, $player, $bank);
-    
+
         $resultString = $blackjack->comparePoints();
-    
+
         $this->assertEquals('Bank Wins, Player get bust', $resultString);
     }
 
@@ -118,27 +118,27 @@ class BlackJackTest extends TestCase
             new Card('King', 'Diamonds', 10),
             new Card('10', 'Spades', 10)
         ]);
-    
+
         $bank = new Player('Bank', 9000, new CardHand());
         $bank->getHand()->addCardsArray([
             new Card('King', 'Diamonds', 10),
             new Card('10', 'Spades', 10),
             new Card('10', 'Clubs', 10)
         ]);
-        
+
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
 
         $blackjack = new BlackJack($deck, $player, $bank);
-    
+
         $resultString = $blackjack->comparePoints();
-    
+
         $this->assertEquals('Player Wins, Bank get bust', $resultString);
     }
 
     public function testmoney2Winner(): void
-    {   
+    {
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
@@ -169,7 +169,7 @@ class BlackJackTest extends TestCase
     }
 
     public function testmoney2Winner2(): void
-    {   
+    {
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
@@ -201,7 +201,7 @@ class BlackJackTest extends TestCase
     }
 
     public function testmoney2Winner3(): void
-    {   
+    {
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);
@@ -232,7 +232,7 @@ class BlackJackTest extends TestCase
     }
 
     public function testmoney2Winner4(): void
-    {   
+    {
         $deckCreator = new BlackJackDeckCreator();
         $cards = $deckCreator->setupDeck();
         $deck = new DeckOfCards($cards);

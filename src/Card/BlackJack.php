@@ -18,7 +18,7 @@ class BlackJack
 {
     /** @var DeckOfCards object containing Cards */
     private DeckOfCards $deck;
-    
+
     /** @var Player object containing a Player */
     private Player $player;
 
@@ -28,9 +28,9 @@ class BlackJack
     /**
      * Blackjack constructor.
      *
-     * @param DeckOfCards[] $deck deckOfCards for gamelogic
-     * @param Player[] $player Player as player object
-     * @param Player[] $bank Bank as player objekt
+     * @param DeckOfCards $deck deckOfCards for gamelogic
+     * @param Player $player Player as player object
+     * @param Player $bank Bank as player objekt
      */
     public function __construct(DeckOfCards $deck, Player $player, Player $bank)
     {
@@ -87,7 +87,7 @@ class BlackJack
 
     /**
      * Check value of CardHand and return adjusted value after calculating for aces
-     * 
+     *
      * @param CardHand $cards
      *
      * @return int Return hand value
@@ -107,7 +107,7 @@ class BlackJack
 
     /**
      * Decide winner of pot and set balance accordingly
-     * 
+     *
      * @param CardHand $playerCards The players hand.
      * @param CardHand $bankCards The banks hand.
      * @param int $bet The bet placed by player.
@@ -167,8 +167,8 @@ class BlackJack
                 } elseif ($playerTotal == $bankTotal && in_array($playerTotal, $high)) {
                     return 'Bank wins through a tie in range 20-21';
                 }
-                
-            return 'No winner';
+
+                return 'No winner';
         }
 
     }

@@ -23,7 +23,7 @@ class Player
     /** @var Cardhand of Card objects*/
     private CardHand $hand;
 
-    /** @var string Players bet */
+    /** @var int The number of chips bet*/
     private $bet;
 
     /**
@@ -42,7 +42,7 @@ class Player
 
     /**
      * Get players name
-     * 
+     *
      * @return string String of player name
      */
     public function getName(): string
@@ -52,7 +52,7 @@ class Player
 
     /**
      * Get number of players chips left
-     * 
+     *
      * @return int Integer of player chips
      */
     public function getChips(): int
@@ -62,7 +62,7 @@ class Player
 
     /**
      * Adjust chips method
-     * 
+     *
      * @param int Integer of the entered $bet
      */
     public function adjustChips(int $bet): void
@@ -72,12 +72,12 @@ class Player
 
     /**
      * Get number of players entered bet
-     * 
+     *
      * @return int Integer of players bet
      */
     public function getBet(): int
     {
-        return $this->bet;
+        return (int) $this->bet;
     }
 
     /**
@@ -103,7 +103,7 @@ class Player
     /**
      * Get representation as string, of player.
      *
-     * @return array Array representing the players status (variables).
+     * @return array<string,mixed> Array representing the players status (variables).
      */
     public function getPlayerString(): array
     {

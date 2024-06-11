@@ -17,7 +17,7 @@ class PlayerTest extends TestCase
     {
         $name = 'John';
         $suit = '10000';
-        $hand = new CardHand;
+        $hand = new CardHand();
 
         $player = new Player($name, $suit, $hand);
 
@@ -27,7 +27,7 @@ class PlayerTest extends TestCase
 
     public function testGetPlayerName()
     {
-        $hand = new CardHand;
+        $hand = new CardHand();
 
         $player = new Player('Kenny', 100, $hand);
 
@@ -36,7 +36,7 @@ class PlayerTest extends TestCase
 
     public function testGetPlayerChips()
     {
-        $hand = new CardHand;
+        $hand = new CardHand();
 
         $player = new Player('Zelda', 200, $hand);
 
@@ -45,7 +45,7 @@ class PlayerTest extends TestCase
 
     public function testAdjustChips()
     {
-        $hand = new CardHand;
+        $hand = new CardHand();
         $player = new Player('Zelda', 100, $hand);
 
         $player->adjustChips(50);
@@ -55,7 +55,7 @@ class PlayerTest extends TestCase
 
     public function testPlayerSetBet()
     {
-        $hand = new CardHand;
+        $hand = new CardHand();
         $player = new Player('Zelda', 100, $hand);
 
         $player->setBet(100);
@@ -64,7 +64,7 @@ class PlayerTest extends TestCase
     }
 
     public function testPlayerGetHand()
-    {   
+    {
         $card = new Card('Ace', 'Diamonds', 14);
         $card2 = new Card('Jack', 'Spades', 11);
         $card3 = new Card('10', 'Clubs', 10);
@@ -80,7 +80,7 @@ class PlayerTest extends TestCase
 
         $this->assertCount(3, $player->getHand()->getHand());
     }
-    
+
     public function testPlayerGetAsString()
     {
         $card = new Card('Ace', 'Diamonds', 14);

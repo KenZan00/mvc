@@ -91,7 +91,7 @@ class BlackjackControllerJsonController
         /** @var BlackJack $game */
         $game = $session->get("blackjack");
 
-        if (!$game) {
+        if ($game !== null) {
             return new JsonResponse(['error' => 'Blackjack game not started'], Response::HTTP_NOT_FOUND);
         }
 
@@ -118,7 +118,7 @@ class BlackjackControllerJsonController
         /** @var BlackJack $game */
         $game = $session->get("blackjack");
 
-        if (!$game) {
+        if ($game !== null) {
             return new JsonResponse(['error' => 'Blackjack game not started'], Response::HTTP_NOT_FOUND);
         }
 
